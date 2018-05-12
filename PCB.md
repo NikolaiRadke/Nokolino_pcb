@@ -10,7 +10,7 @@ There are **three** ways to get your own set of boards:
 of your choice. in China, you can order a set of 10 boards for about 15€ in less then three weeks. If you are in a hurry, 
 you can choose express shipping. But be careful: in Germany, if your order has a value more than 22€ including shipping costs, you have to pay taxes and a processing fee, which also takes additional time! So try to keep your or order **below 22€**! if you need help, feel free to contact me. Order specifications: two layers and standard presets like PCB thickness 1.6.  
   
-2. Wait some days longer. The heise Verlag will sell complete NOKOlino-Kits for an accurate price. Stay tuned for more information.  
+2. Wait some days longer. The heise Verlag will sell complete NOKOlino kits for an accurate price. Stay tuned for more information.  
 
 3. Contact me. I have some boards left. But please: First try to order them by yourself as written in option 1.  
 
