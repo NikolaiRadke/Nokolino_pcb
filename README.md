@@ -1,10 +1,11 @@
 # ![NOKO](http://www.nikolairadke.de/NOKOlino/nokolino_klein.png) NOKOlino
 
-The ATTiny-based litte brother of NOKO. Tiny and cute. And everyone is invited to **contribute**. NOKOlino is for everyone. Right now, the PCB is finished. I will provide the Gerber-Files in this GitHub, but everyone can purchase a complete kit via Heise Verlag! Stay tuned! What's new? See the [newsblog](https://github.com/NikolaiRadke/NOKOlino/tree/master/NEWS.md).  
+The ATTiny-based litte brother of NOKO. Tiny and cute. And everyone is invited to **contribute**. NOKOlino is for everyone. This Repository ist for the **PCB** version of NOKOlino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino/tree/master/NEWS.md) on how to get your own boards.  
+What's new? See the [newsblog](https://github.com/NikolaiRadke/NOKOlino/tree/master/PCB.md).  
 
 ![NOKOlino light blue](http://www.nikolairadke.de/NOKOlino/nokolino_wiki.png)
   
-Like his big brother NOKO, the little NOKOlino delights it's surroundings with cheeky comments. But unlike NOKO he is more obstinate - no radio, a display, no frills. Instead of an Arduino he has a small **ATtiny** microcontroller, only one on-off switch and a big button. But he is small, can stay active for days and is, in contrast to his big brother, very easy to build.  
+Like his big brother **NOKO**, the little NOKOlino delights it's surroundings with cheeky comments. But unlike NOKO he is more obstinate - no radio, a display, no frills. Instead of an Arduino he has a small **ATtiny** microcontroller, only one on-off switch and a big button. But he is small, can stay active for days and is, in contrast to his big brother, very easy to build.  
   
 Another useful application option would be to use the hardware without the monster suit as a **music box** in an old used doll to bring it back to modern days, maybe with other sounds or songs.  
 
@@ -42,18 +43,16 @@ NOKO/
 |       Source documents for Scribus with all illustrations and fonts.
 |
 ├── mp3/
-|   Voiceset for NOKOlino in German. English needed? Contribute!
-|   ├── mp3_8MBit/
-|   |   Low qualitiy files for the 1MB-JQ6500.
-|   ├── mp3_16MBit/
-|   |   High quality files for the 2MB-JQ6500.
-|   └── mp3_32MBit/
-|       Enhanched voice set for the 4MB-JQ6500.  
+|   Voice sets for the 4MB-JQ6500 in German. English needed? Contribute!
+|   ├── male/
+|   |   Male voice set, spoken by Carsten Caniglia.
+|   └── female/
+|   |   Female voice set, spoken by Norma Anthes
 |
 ├── schematics/
 |   The schematics for the NOKOlino parts, the NOKO sewing pattern and shopping list.
-|   └── geda/
-|       Source documents for gEDA.
+|   └── gerber/
+|       The gerber files for the PCB to build by your own.
 |
 └── src/
     ATtiny sketch
