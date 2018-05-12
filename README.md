@@ -1,8 +1,8 @@
 # ![NOKO](http://www.nikolairadke.de/NOKOlino/nokolino_klein.png) NOKOlino
 
-The ATTiny-based litte brother of NOKO. Tiny and cute. And everyone is invited to **contribute**. NOKOlino is for everyone. This Repository ist for the **PCB** version of NOKOlino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino/tree/master/PCB.md). on how to get your own boards.  
+The ATTiny-based litte brother of NOKO. Tiny and cute. And everyone is invited to **contribute**. NOKOlino is for everyone. This Repository ist for the **PCB** version of NOKOlino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/PCB.md). on how to get your own boards.  
   
-What's new? See the [newsblog](https://github.com/NikolaiRadke/NOKOlino/tree/master/NEWS.md)  
+What's new? See the [newsblog](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/NEWS.md)  
 
 ![NOKOlino light blue](http://www.nikolairadke.de/NOKOlino/nokolino_wiki.png)
   
@@ -20,7 +20,7 @@ Right now, the building wiki, the voice set and the manual are in German. I'll t
   
 ### Prerequisites
   
-NOKOlino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `NOKOlino/src/NOKOlino/` into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/NOKOlino/tree/master/howto_compile) for further instructions. 
+NOKOlino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `NOKOlino/src/NOKOlino/` into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/howto_compile) for further instructions. 
   
 ### Content
 
@@ -63,5 +63,5 @@ NOKO/
 ### Let's get started!
 
 Interested in NOKOlino? Great! Let's start here:  
-[German wiki](https://github.com/NikolaiRadke/NOKOlino/wiki).  
+[German wiki](https://github.com/NikolaiRadke/NOKOlino_2/wiki).  
 English wiki will follow. One day...
