@@ -1,4 +1,4 @@
-# Uploading Files on the JQ6500 with Linux
+# Uploading files on the JQ6500 with Linux
 
 It is quite easy with this command line tool, written by [Reinhard Max](https://chiselapp.com/user/rmax/repository/jq6500).  I added a precompiled version (64 Bit). It is free, but it is also *beerware*... ;-)  
 
