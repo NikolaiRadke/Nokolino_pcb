@@ -9,6 +9,7 @@ detailed instructions.
 **Windows** users can use the (chinese) interface. See this [instructions](http://sparks.gogo.co.nz/jq6500/index.html), written by James Sleeman. **Linux** and **Mac** users should try the [uploading tool](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/linux_uploader), written by Max Reinhard.  
   
 **32 Mbit:**  
+
 | Number  | Assignment               |
 | --------|-------------------------:|
 | 001-040 | Response to belly button |
@@ -16,6 +17,7 @@ detailed instructions.
 | 164     | BEEP battery warning     |
   
 **16 Mbit:**  
+
 | Number  | Assignment               |
 | --------|-------------------------:|
 | 001-020 | Response to belly button |
