@@ -47,8 +47,15 @@ NOKO/
 |   Voice sets for the 4MB-JQ6500 in German. English needed? Contribute!
 |   ├── male/
 |   |   Male voice set, spoken by Carsten Caniglia.
+|   |   ├── mp3_16MBit/
+|   |   |   70 files for smaller (2MiB) modules.
+|   |   └── mp3_32Bit/
+|   |       164 files for recommended (4MiB) modules.
 |   └── female/
-|   |   Female voice set, spoken by Norma Anthes
+|       Female voice set, spoken by Norma Anthes
+|       |   70 files for smaller (2MiB) modules.
+|       └── mp3_32Bit/
+|           164 files for recommended (4MiB) modules.
 |
 ├── schematics/
 |   The schematics for the NOKOlino parts, the NOKO sewing pattern and shopping list.
