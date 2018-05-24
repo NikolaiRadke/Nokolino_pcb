@@ -20,9 +20,9 @@ detailed instructions.
 
 | Number  | Assignment               |
 | --------|-------------------------:|
-| 001-020 | Response to belly button |
-| 021-069 | Time based events        |
-| 070     | BEEP battery warning     |
+| 001-030 | Response to belly button |
+| 021-079 | Time based events        |
+| 080     | BEEP battery warning     |
   
 The male voice has been spoken by my fellow actor [Carsten Caniglia](https://filmmakers.de/carsten-caniglia). Why? 
 He has done a great job - moreover I don't want to listen to my own voice every day, especially when development takes more than a year! (Ian said I sound really weird in real life. Thanks, mate.). The female voice was spoken by my fellow actress [Norma Anthes](http://norma-anthes.de). Thank you, lady!    
