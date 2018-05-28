@@ -44,11 +44,11 @@ NOKO/
 |       Source documents for Scribus with all illustrations and fonts.
 |
 ├── mp3/
-|   Voice sets for the 4MB-JQ6500 in German. English needed? Contribute!
+|   Voice sets for the 32MBit- & 16MBit-JQ6500 in German. English needed? Contribute!
 |   ├── male/
 |   |   Male voice set, spoken by Carsten Caniglia.
 |   |   ├── mp3_16MBit/
-|   |   |   70 files for smaller (2MiB) modules.
+|   |   |   80 files for smaller (2MiB) modules.
 |   |   └── mp3_32Bit/
 |   |       164 files for recommended (4MiB) modules.
 |   └── female/
