@@ -31,11 +31,11 @@
 #define Time         10             // Say something every statistical 10 minutes
 #define Volume       25             // Volume 0-30 - 20 is recommended 
 
-//#define Breadboard                // Breadboard or PCB?
+#define Breadboard                // Breadboard or PCB?
 
 // Voice set selection
-#define Set_8MBit_16MBit
-//#define Set_32MBit
+//#define Set_8MBit_16MBit
+#define Set_32MBit
 //#define Set_own
 
 #ifdef Set_8MBit_16MBit
@@ -104,6 +104,9 @@ init();
   ACSR |= _BV(ACD);                  // Disable analog comparator - default?
   DDRB &= ~(1<<PB2);                 // D2 INPUT
   PORTB |= (1<<PB2);                 // D2 HIGH 
+
+  pinMode(0,OUTPUT);
+  digitalWrite(0,LOW);
   
   // Start JQ6500
   mp3.begin(9600);
@@ -145,6 +148,8 @@ while(1)
   // Wait for button or time and go to sleep - ~8 times/second         
   if (!low) 
   {
+    if (analogRead(3)<900) digitalWrite(0,HIGH);
+    else digitalWrite(0,LOW);
     if (!(PINB & (1<<PB2))) JQ6500_play(random(0,Button_event+1));      // Button event
     else if (random(0,Time*60*8)==1) JQ6500_play(random(Button_event+1,Time_event+1)); // Time event
     else attiny_sleep();
