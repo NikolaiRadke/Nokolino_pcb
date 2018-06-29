@@ -8,7 +8,7 @@
  *  
  *  Circuit:
  *  1: RST | PB5  free
- *  2: A3  | PB3  free          
+ *  2: A3  | PB3  SFH300          
  *  3: A2  | PB4  Busy JQ6500 - 8
  *  4: GND        GND
  *  5: D0  | PB0  free
@@ -148,7 +148,7 @@ while(1)
   // Wait for button or time and go to sleep - ~8 times/second         
   if (!low) 
   {
-    if (analogRead(3)<900) digitalWrite(0,HIGH);
+    if (analogRead(3)<20) digitalWrite(0,HIGH);
     else digitalWrite(0,LOW);
     if (!(PINB & (1<<PB2))) JQ6500_play(random(0,Button_event+1));      // Button event
     else if (random(0,Time*60*8)==1) JQ6500_play(random(Button_event+1,Time_event+1)); // Time event
