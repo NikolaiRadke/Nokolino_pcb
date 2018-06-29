@@ -1,6 +1,7 @@
 # Newsblog
 
 ## 2018  
+* **16.06.2018** Updated the upload tool.  
 * **24.05.2018** Firmware **1.0-240518**: New 16MBit voiceset support.  
 * **23.05.2018** Better data compression for 16MBit voiceset. You get 10 more files!  
 * **22.05.2018** Added 16Mbit module support.  
