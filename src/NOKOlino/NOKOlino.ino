@@ -1,10 +1,10 @@
-/* NOKOlino V1.0 29.06.2018 - Nikolai Radke
+/* NOKOlino V1.0 31.08.2018 - Nikolai Radke
  *  
  *  Sketch for Mini-NOKO-Monster
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
- *  Flash-Usage: 3.718 (1.8.2 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
+ *  Flash-Usage: 3.776 (1.8.6 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -29,13 +29,13 @@
 //--------------------------------------------------------------------------------
 // Configuation
 #define Time         10             // Say something every statistical 10 minutes
-#define Volume       25             // Volume 0-30 - 20 is recommended 
+#define Volume       20             // Volume 0-30 - 20 is recommended 
 
 //#define Breadboard                // Breadboard or PCB?
 
 // Voice set selection
-#define Set_8MBit_16MBit
-//#define Set_32MBit
+//#define Set_8MBit_16MBit
+#define Set_32MBit
 //#define Set_own
 
 #ifdef Set_8MBit_16MBit
@@ -52,10 +52,10 @@
 #endif
 
 #ifdef Breadboard
-  #define Offset       0.4          // Battery measuring error
+  #define Offset       0.3          // Battery measuring error
   #define maxInput     50           // Max. value from busy line. 
 #else
-  #define Offset       0.6
+  #define Offset       0.1
   #define maxInput     0
 #endif
 
@@ -64,8 +64,8 @@
 //---------------------------------------------------------------------------------
 
 // Optional battery warning
-#define minCurrent   3.50 +Offset   // Low power warning current + measuring error
-#define battLow      3.30 +Offset   // Minimal voltage before JQ6500 fails
+#define minCurrent   3.60 +Offset   // Low power warning current + measuring error
+#define battLow      3.50 +Offset   // Minimal voltage before JQ6500 fails
 
 // Hardware pins
 #define TX      0
@@ -216,5 +216,3 @@ ISR(WDT_vect)                       // Set global flag
 {
   f_wdt=1; 
 }
-
-
