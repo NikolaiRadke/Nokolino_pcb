@@ -1,6 +1,6 @@
 # ![NOKO](http://www.nikolairadke.de/NOKOlino_2/nokolino_klein.png) NOKOlino (PCB)
 
-The ATTiny-based litte brother of NOKO. Tiny and cute. And everyone is invited to **contribute**. NOKOlino is for everyone. This repository ist for the **PCB** version of NOKOlino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/PCB.md). on how to get your own boards.  
+The ATTiny-based litte brother of NOKO. Tiny and cute. And everyone is invited to **contribute**. NOKOlino is for everyone. This repository ist for the **PCB** version of NOKOlino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/PCB.md) on how to get your own boards.  
   
 What's new? See the [newsblog](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/NEWS.md).   
 
