@@ -1,6 +1,7 @@
 # Newsblog
 
 ## 2018  
+* **03.09.2018** See NOKOlino an me at the Maker Faire Hannover: 15.09.-16.09. HCC Hannover.  
 * **31.08.2018** Firmware **1.0-310818**: Optimized PCB battery warning settings.  
 * **29.06.2018** Firmware **1.0-290618**: Improved power saving when battery is low.  
 * **16.06.2018** Updated the upload tool.  
