@@ -1,6 +1,7 @@
 # Newsblog
 
 ## 2018  
+* **05.09.2018** Updated PCB design: More room for a USB cable for your JQ6500 and the opportunity to add the new phototransistor feature.  
 * **03.09.2018** See NOKOlino an me at the Maker Faire Hannover: 15.09.-16.09. HCC Hannover.  
 * **31.08.2018** Firmware **1.0-310818**: Optimized PCB battery warning settings.  
 * **29.06.2018** Firmware **1.0-290618**: Improved power saving when battery is low.  
