@@ -59,6 +59,8 @@ NOKO/
 |
 ├── schematics/
 |   The schematics for the NOKOlino parts, the NOKO sewing pattern and shopping list.
+|   ├── geda/
+|   |   Source documents for gEDA.  
 |   └── gerber/
 |       The gerber files for the PCB to build by your own.
 |
