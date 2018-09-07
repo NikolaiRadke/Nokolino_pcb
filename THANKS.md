@@ -8,11 +8,14 @@ These people helped me bringing life to NOKOlino:
 - **Carsten Caniglia** - the male voice of NOKOlino. Look at his [Homepage](http://www.carstencaniglia.com).  
 - **Norma Anthes** - the female voice of NOKOlino or NOKOlina. Look hat her [Homepage](http://norma-anthes.de).  
 - **Helga Hansen** - from the Make Magazin for promoting NOKOlino.  
-- **Thomas Stolt** - PCB design.  
+- **Thomas Stolt** - PCB design and bugfixes.  
   
 Active supporters:  
 
 - **"Brickhub** - bugfixes.  
+- **Horst Friedrich** - the phototransistor idea.  
+- **Daniel Bachfeld** - the QI wireless charging idea.  
+- **"Nickneck"** - translating the JQ6500 uploader.  
   
 Used ressources:  
 
