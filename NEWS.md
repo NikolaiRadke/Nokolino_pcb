@@ -1,6 +1,7 @@
 # Newsblog
 
-## 2018  
+## 2018 
+* **07.09.2018** New NOKOlino with QI wireless charging module and internal power button is ready! Works great!  
 * **05.09.2018** Updated PCB design:
   * More room for a USB cable for your JQ6500.    
   * Opportunity to add the new phototransistor feature.  
