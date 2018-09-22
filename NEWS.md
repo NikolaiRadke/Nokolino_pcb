@@ -1,6 +1,10 @@
 # Newsblog
 
 ## 2018 
+* **22.09.2018** New Firmware **2.0-220918**:
+  * Optional startup beep.  
+  * Optional phototransistor feature.  
+  * Improved volume handling, some modules need more startup time.  
 * **07.09.2018** New NOKOlino with QI wireless charging module and internal power button is ready! Works great!  
 * **05.09.2018** Updated PCB design:
   * More room for a USB cable for your JQ6500.    
