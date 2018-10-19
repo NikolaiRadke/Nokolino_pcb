@@ -29,10 +29,10 @@
 //--------------------------------------------------------------------------------
 // Configuation
 #define Time         10             // Say something every statistical 10 minutes
-#define Volume       20             // Volume 0-30 - 25 is recommended 
+#define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-#define Breadboard                  // Breadboard or PCB?
+//#define Breadboard                  // Breadboard or PCB?
 
 // Voice set selection
 //#define Set_16MBit
@@ -62,9 +62,9 @@
 
 // Optional - comment out with // to disable
 #define Batterywarning              // Gives a warning when battery is low
-#define Lightsensor               // Will be quite in the dark
-#define SleepComplain             // Will complain if button pressed while its dark
-#define StartupBeep               // Will say "beep" when turned on
+//#define Lightsensor               // Will be quite in the dark
+//#define SleepComplain             // Will complain if button pressed while its dark
+//#define StartupBeep               // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
