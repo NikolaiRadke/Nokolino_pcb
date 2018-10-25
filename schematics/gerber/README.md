@@ -1,7 +1,7 @@
 # About the versions
   
 ## V1.0  
-This is the original releae, used in this wiki. Works fine.
+This is the original release, used in this wiki. Works fine.
 
 ## V1.1  
 This release enhances the former V1.0 with some additions:  
