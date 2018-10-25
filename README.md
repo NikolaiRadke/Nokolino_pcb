@@ -53,7 +53,7 @@ NOKO/
 |   |       164 files for recommended (4MiB) modules.
 |   └── female/
 |       Female voice set, spoken by Norma Anthes
-|       |   70 files for smaller (2MiB) modules.
+|       |   80 files for smaller (2MiB) modules.
 |       └── mp3_32Bit/
 |           164 files for recommended (4MiB) modules.
 |
