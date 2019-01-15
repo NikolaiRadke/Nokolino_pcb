@@ -1,4 +1,4 @@
-/* NOKOlino V2.0 25.09.2018 - Nikolai Radke
+/* NOKOlino V2.0 15.01.2018 - Nikolai Radke
  *  
  *  Sketch for Mini-NOKO-Monster
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
@@ -64,7 +64,7 @@
 #define Batterywarning              // Gives a warning when battery is low
 //#define Lightsensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
-//#define StartupBeep               // Will say "beep" when turned on
+#define StartupBeep               // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
@@ -116,10 +116,6 @@ init();
   mp3.write("\x7E\x02\x0C\xEF");     // Reset JQ6500
   setup_watchdog(5);                 // Set sleep time to 500ms
   attiny_sleep();                    // Sleep 500ms
-  mp3.write("\x7E\x03\x06");
-  mp3.write(Volume);                 // Set volume
-  mp3.write("\xEF"); 
-  attiny_sleep();                    // Sleep 500ms
   mp3.write("\x7E\x03\x11\x04\xEF"); // No loop
   attiny_sleep();                    // Sleep 500ms
 
@@ -144,7 +140,6 @@ init();
 
   // Optional startup beep
   #ifdef StartupBeep
-    attiny_sleep();
     JQ6500_play(Time_event+1);       // NOKOLINO says "Beep"
   #endif
 
@@ -197,8 +192,12 @@ while(1)
 }}
 
 void JQ6500_play(uint8_t f)          // Plays MP3 number f
-{
-  attiny_sleep();                    // Without pause, pull-up messes the busy signal
+{               
+  mp3.write("\x7E\x03\x06");
+  mp3.write(Volume);                 // Set volume
+  mp3.write("\xEF");                 // JQ6500 looses volume settings after sleep... 
+  attiny_sleep();
+  attiny_sleep();                     // Without long pause, pull-up messes the busy signal
   mp3.write("\x7E\x04\x03\x01");     // Play file number f
   mp3.write(f);
   mp3.write("\xEF");

@@ -51,8 +51,15 @@ int force = 0;
 int verbosity = 1;
 int cmd = 0;
 
-extern const unsigned char _binary_rescue_iso_start[] __attribute__((weak));
-extern const void _binary_rescue_iso_size __attribute__((weak));
+/*
+ * We cannot use the _binary_*_size symbol here, because some versions
+ * of the Linux runtime linker try to "relocate" the size when the
+ * executable was linked with -pie.
+ */
+extern const void _binary_rescue_iso_start __attribute__((weak));
+extern const void _binary_rescue_iso_end __attribute__((weak));
+const uint8_t *rescue_start = &_binary_rescue_iso_start;
+const uint8_t *rescue_end = &_binary_rescue_iso_end;
 
 void
 p(int level, const char* format, ...) {
@@ -656,7 +663,7 @@ main(int argc, char **argv)
 	if (optind_cmd != argc) {
 	    errx(1, "No options allowed in resue write mode (-X).");
 	}
-	if (_binary_rescue_iso_start == NULL) {
+	if (rescue_start == NULL) {
 	    errx(1, "This binary has no embedded ISO image.\n"
 		 "Please specify a file or use 'jq6500rescue'.");
 	}
@@ -685,9 +692,8 @@ main(int argc, char **argv)
     switch (cmd) {
 
     case 'X':
-
-	size = (size_t)&_binary_rescue_iso_size;
-	memcpy(buf, _binary_rescue_iso_start, size);
+	size = rescue_end - rescue_start;
+	memcpy(buf, rescue_start, size);
 	rawmode = 1;
 	patchmode = 1;
 	offset = 0;
