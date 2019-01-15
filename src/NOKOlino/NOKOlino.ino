@@ -1,10 +1,10 @@
-/* NOKOlino V2.0 15.01.2018 - Nikolai Radke
+/* NOKOlino V2.0 15.01.2019 - Nikolai Radke
  *  
  *  Sketch for Mini-NOKO-Monster
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
- *  Flash-Usage: 3.770 (1.8.6 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
+ *  Flash-Usage: 3.770 (1.8.8 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -64,7 +64,7 @@
 #define Batterywarning              // Gives a warning when battery is low
 //#define Lightsensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
-#define StartupBeep               // Will say "beep" when turned on
+//#define StartupBeep               // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
