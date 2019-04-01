@@ -1,6 +1,6 @@
 # PCB - How to get your own NOKOlino boards
 
-**19.11.2018**  
+**01.04.2019**  
 
 NOKOlino_2 is made of **two** boards. Both of them are 6x5 cm, with two layers: The **main board** for the Buttons, 
 the charging module, the ATtiny and the MP3 module, the **top board** for the Speaker. The battery is on the 
