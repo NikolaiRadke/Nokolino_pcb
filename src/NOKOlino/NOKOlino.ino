@@ -29,7 +29,7 @@
 //--------------------------------------------------------------------------------
 // Configuation
 #define Time         10             // Say something every statistical 10 minutes
-#define Volume       25             // Volume 0-30 - 25 is recommended 
+#define Volume       22             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
 //#define Breadboard                  // Breadboard or PCB?
@@ -197,7 +197,7 @@ void JQ6500_play(uint8_t f)          // Plays MP3 number f
   mp3.write(Volume);                 // Set volume
   mp3.write("\xEF");                 // JQ6500 looses volume settings after sleep... 
   attiny_sleep();
-  attiny_sleep();                     // Without long pause, pull-up messes the busy signal
+  attiny_sleep();                    // Without long pause, pull-up messes the busy signal
   mp3.write("\x7E\x04\x03\x01");     // Play file number f
   mp3.write(f);
   mp3.write("\xEF");
