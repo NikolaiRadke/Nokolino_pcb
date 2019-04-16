@@ -2,6 +2,8 @@
 
 # 2019
   
+* **16.06.2019** Firmware **2.0-160419**: Fixed a bug for the optional dark mode.  
+* **14.04.2019** Testet IDE 1.8.9. Works too.  
 * **01.04.2019** I found a way to realize MP3-upload via USB! A new PCB will be releast in a few weeks!  
 * **15.01.2019** Firmware **2.0-150119**: Reworked volume control. Some modules have issues after sleep mode.  
 * **15.01.2019** Testet IDE 1.8.8. Works well.  
