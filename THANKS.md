@@ -9,6 +9,7 @@ These people helped me bringing life to NOKOlino:
 - **Norma Anthes** - the female voice of NOKOlino or NOKOlina. Look hat her [Homepage](http://norma-anthes.de).  
 - **Helga Hansen** - from the Make Magazin for promoting NOKOlino.  
 - **Thomas Stolt** - PCB design and bugfixes.  
+- **Jan Farnslau** - PCB rework and beer. Look at his [Projekts](https://janfanslau.com).  
   
 Active supporters:  
 
