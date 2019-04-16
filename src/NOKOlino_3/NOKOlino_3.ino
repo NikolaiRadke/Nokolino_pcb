@@ -1,19 +1,19 @@
-/* NOKOlino V2.0 16.04.2019 - Nikolai Radke
+/* NOKOlino V3.0 16.04.2019 - Nikolai Radke
  *  
- *  Sketch for Mini-NOKO-Monster
+ *  Sketch for Mini-NOKO-Monster - NOT WORKING WITH V2.0 HARDWARE!
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
- *  Flash-Usage: 3.692 (1.8.9 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
+ *  Flash-Usage: 3.773 (1.8.9 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
  *  
  *  Circuit:
  *  1: RST | PB5  free
- *  2: A3  | PB3  Optional SFH300          
+ *  2: A3  | PB3  Optional SFH300  
  *  3: A2  | PB4  Busy JQ6500 - 8
  *  4: GND        GND
- *  5: D0  | PB0  free
+ *  5: D0  | PB0  Button      - GND
  *  6: D1  | PB1  RX JQ6500   - 9   
- *  7: D2  | PB2  Button      - GND
+ *  7: A1  | PB2  Check D+       
  *  8: VCC        VCC
  *  
  *  Sleepmodes:
@@ -64,7 +64,7 @@
 #define Batterywarning              // Gives a warning when battery is low
 //#define Lightsensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
-//#define StartupBeep               // Will say "beep" when turned on
+#define StartupBeep                 // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
@@ -92,6 +92,7 @@ uint16_t address,seed;
 volatile boolean f_wdt = 1;          // Volatile -> it is an interrupt routine
 boolean low=false;
 boolean dark=false;
+boolean USB=false;
 
 SoftwareSerial mp3(TX,RX);           // TX to D0, RX to D1
 
@@ -108,8 +109,29 @@ init();
   // Power saving
   MCUCR |= _BV(BODS) | _BV(BODSE);   // Disable brown out detection - default?
   ACSR |= _BV(ACD);                  // Disable analog comparator - default?
-  DDRB &= ~(1<<PB2);                 // D2 INPUT
-  PORTB |= (1<<PB2);                 // D2 HIGH 
+  DDRB &= ~(1<<PB0);                 // D0 INPUT
+  PORTB |= (1<<PB0);                 // D0 HIGH 
+
+  
+  // Loop if there is a USB data connection for upload
+  setup_watchdog(6);                 // Set sleep time to 1000ms  
+  attiny_sleep();                    // Wait. D+ needs some time to get current
+  if (analogRead(A1)>100)            // Check D+ for data connection
+  {
+    USB=true;
+    while(USB)                       // Loop
+    {
+      USB=false;
+      for (uint8_t i=0;i<3;i++)      // Check three times
+      {
+        if (analogRead(A1)>100) USB=true;    
+        setup_watchdog(3);           // Wait for recheck
+        attiny_sleep();
+      }    
+    }
+    setup_watchdog(6);               // Give JQ6500 1 sec to settle down
+    attiny_sleep();
+  }
   
   // Start JQ6500
   mp3.begin(9600);
@@ -153,7 +175,7 @@ while(1)
   // Wait for button or time and go to sleep - ~8 times/second         
   if (!low)                                       // Quiet if battery too low
   {
-    if (!(PINB & (1<<PB2))) 
+    if (!(PINB & (1<<PB0))) 
     {
       if (dark) {                                 // If fototransistor is available
         #ifdef SleepComplain                      // and complain feature enabled:
@@ -162,7 +184,6 @@ while(1)
       }
       else JQ6500_play(random(0,Button_event+1)); // Button event
     }
-    
     else if ((!dark) && (random(0,Time*60*8)==1)) // Time event
       JQ6500_play(random(Button_event+1,Time_event+1)); 
   }
