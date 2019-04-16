@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name NOKOlino)(type KiCad)(uri "$(KIPRJMOD)/NOKOlino.pretty")(options "")(descr ""))
+  (lib (name Logo)(type KiCad)(uri ${KIPRJMOD}/Logo.pretty)(options "")(descr ""))
+)

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name NOKOlino-rescue)(type Legacy)(uri ${KIPRJMOD}/NOKOlino-rescue.lib)(options "")(descr ""))
+  (lib (name NOKOlino1)(type Legacy)(uri ${KIPRJMOD}/NOKOlino.lib)(options "")(descr ""))
+)
