@@ -17,6 +17,7 @@ Active supporters:
 - **Horst Friedrich** - the phototransistor idea.  
 - **Daniel Bachfeld** - the QI wireless charging idea.  
 - **"Nickneck"** - translating the JQ6500 uploader.  
+- **Reinhard Max** - for the upload and rescue tool.  
   
 Used ressources:  
 
