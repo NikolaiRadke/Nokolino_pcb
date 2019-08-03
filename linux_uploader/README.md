@@ -12,7 +12,7 @@ It is quite easy with this command line tool, written by [Reinhard Max](https://
 
 If your MP3 files are in another directory, modify the last argument.  
 
-## Repairing a JQ6500 without Windows software
+## Repairing a JQ6500 without Windows software with Linux
   
 Strangely, some modules come without the integrated Windows software. If you have a friend in need without Linux, the tool can fix the module.
 
@@ -21,5 +21,9 @@ Strangely, some modules come without the integrated Windows software. If you hav
 3. Just type ``` ./jq6500 -X ```. 
 
 That's it. You can now use your module with Windows.  
+
+## Repairing a JQ6500 without Windows software without Linux
+  
+If you are a Windows user see my [JQ6500-rescue-tool](https://github.com/NikolaiRadke/JQ6500-rescue-tool) repository. There you find a quite simple way to fix your module.   
 
 
