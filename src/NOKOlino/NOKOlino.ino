@@ -1,10 +1,10 @@
-/* NOKOlino V2.0 16.04.2019 - Nikolai Radke
+/* NOKOlino V2.1 03.08.2019 - Nikolai Radke
  *  
  *  Sketch for Mini-NOKO-Monster
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
- *  Flash-Usage: 3.692 (1.8.9 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
+ *  Flash-Usage: 3.3706 (1.8.9 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -32,7 +32,7 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-//#define Breadboard                  // Breadboard or PCB?
+//#define Breadboard                // Breadboard or PCB?
 
 // Voice set selection
 //#define Set_16MBit
@@ -61,16 +61,16 @@
 #endif
 
 // Optional - comment out with // to disable
-#define Batterywarning              // Gives a warning when battery is low
-//#define Lightsensor               // Will be quite in the dark
+#define BatteryWarning              // Gives a warning when battery is low
+//#define LightSensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
-#define StartupBeep               // Will say "beep" when turned on
+#define StartupBeep                 // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
 // Optional battery warning
-#define minCurrent   3.60 +Offset  // Low power warning current + measuring error
-#define battLow      3.50 +Offset  // Minimal voltage before JQ6500 fails
+#define minCurrent   3.60 +Offset   // Low power warning current + measuring error
+#define battLow      3.50 +Offset   // Minimal voltage before JQ6500 fails
 
 // Hardware pins
 #define TX      0
@@ -84,98 +84,96 @@
 #ifndef sbi
   #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 #endif
-#define BODS 7                       // BOD sleep bit in MCUCR
-#define BODSE 2                      // BOD sleep enable bit in MCUCR
+#define BODS 7                         // BOD sleep bit in MCUCR
+#define BODSE 2                        // BOD sleep enable bit in MCUCR
 
 // Variables
 uint16_t address,seed;
-volatile boolean f_wdt = 1;          // Volatile -> it is an interrupt routine
+volatile boolean f_wdt = 1;            // Volatile -> it is an interrupt routine
 boolean low=false;
 boolean dark=false;
 
-SoftwareSerial mp3(TX,RX);           // TX to D0, RX to D1
+SoftwareSerial mp3(TX,RX);             // TX to D0, RX to D1
 
 int main(void) {
 
-#ifdef Batterywarning
+#ifdef BatteryWarning
   uint16_t current;
   double vref;
-  uint16_t counter=10;               // Check shortly after startup
+  uint16_t counter=10;                 // Check shortly after startup
 #endif
 
-init(); 
-{
+init(); {
   // Power saving
-  MCUCR |= _BV(BODS) | _BV(BODSE);   // Disable brown out detection - default?
-  ACSR |= _BV(ACD);                  // Disable analog comparator - default?
-  DDRB &= ~(1<<PB2);                 // D2 INPUT
-  PORTB |= (1<<PB2);                 // D2 HIGH 
+  MCUCR |= _BV(BODS) | _BV(BODSE);     // Disable brown out detection - default?
+  ACSR |= _BV(ACD);                    // Disable analog comparator - default?
+  DDRB &= ~(1<<PB2);                   // D2 INPUT
+  PORTB |= (1<<PB2);                   // D2 HIGH 
+
+  // Loop if there is a USB data connection for upload
+  setup_watchdog(6);                   // Set sleep time to 1000ms  
+  if (!(PINB & (1<<PB2))) {            // If button is pressed during startup
+    while(1) attiny_sleep();           // sleep forever to upload files to JQ6500
+  }
   
   // Start JQ6500
   mp3.begin(9600);
-  mp3.write("\x7E\x02\x0C\xEF");     // Reset JQ6500
-  setup_watchdog(5);                 // Set sleep time to 500ms
-  attiny_sleep();                    // Sleep 500ms
-  mp3.write("\x7E\x03\x11\x04\xEF"); // No loop
-  attiny_sleep();                    // Sleep 500ms
+  mp3.write("\x7E\x02\x0C\xEF");       // Reset JQ6500
+  setup_watchdog(5);                   // Set sleep time to 500ms
+  attiny_sleep();                      // Sleep 500ms
+  mp3.write("\x7E\x03\x11\x04\xEF");   // No loop
+  attiny_sleep();                      // Sleep 500ms
 
   // Randomize number generator
-  address=eeprom_read_word(0);       // Read EEPROM address
-  if ((address<2) || (address>(EEPROM.length()-3)))             
-  {                                  // Initialize EEPROM and size for first use or after end of cycle
-    address = 2;                     // Starting address
-    eeprom_write_word(0,address);    // Write starting address
-    eeprom_write_word(address,0);    // Write seed 0
+  address=eeprom_read_word(0);         // Read EEPROM address
+  if ((address<2) || (address>(EEPROM.length()-3))) {
+  // Initialize EEPROM and size for first use or after end of cycle
+    address = 2;                       // Starting address
+    eeprom_write_word(0,address);      // Write starting address
+    eeprom_write_word(address,0);      // Write seed 0
   }
-  seed=eeprom_read_word(address);    // Read seed
-  if (seed>900)                      // After 900 write-cyles move to another address
-  {                                  // to keep the EEPROM alive
-    seed=0;
+  seed=eeprom_read_word(address);      // Read seed
+  if (seed>900) {                      // After 900 write-cyles move to another address                                  
+    seed=0;                            // to keep the EEPROM alive
     address+=2;
     eeprom_write_word(0,address);
   }
-  randomSeed(seed);                  // Randomize
-  seed++;                            // New seed
-  eeprom_write_word(address,seed);   // Save new seed for next startup
+  randomSeed(seed);                    // Randomize
+  seed++;                              // New seed
+  eeprom_write_word(address,seed);     // Save new seed for next startup
 
   // Optional startup beep
   #ifdef StartupBeep
-    JQ6500_play(Time_event+1);       // NOKOLINO says "Beep"
+    JQ6500_play(Time_event+1);         // NOKOLINO says "Beep"
   #endif
 
-  mp3.write("\x7E\x02\x0A\xEF");     // Sleep, JQ6500!
-  setup_watchdog(3);                 // Set sleep time to 128ms   
+  mp3.write("\x7E\x02\x0A\xEF");       // Sleep, JQ6500!
+  setup_watchdog(3);                   // Set sleep time to 128ms   
 }
 
 // Main loop
-while(1)
-{
+while(1) {
   // Wait for button or time and go to sleep - ~8 times/second         
-  if (!low)                                       // Quiet if battery too low
-  {
-    if (!(PINB & (1<<PB0))) 
-    {
-      if (dark) {                                 // If fototransistor is available
-        #ifdef SleepComplain                      // and complain feature enabled:
-          JQ6500_play(Time_event);                // complain when button pressed
+  if (!low) {                          // Quiet if battery too low
+    if (!(PINB & (1<<PB2))) {          // If button is pressed then
+      if (dark) {                      // If fototransistor is available
+        #ifdef SleepComplain           // and complain feature enabled:
+          JQ6500_play(Time_event);     // complain when button pressed
         #endif
       }
       else JQ6500_play(random(0,Button_event+1)); // Button event
-    }
-    
+    }    
     else if ((!dark) && (random(0,Time*60*8)==1)) // Time event
       JQ6500_play(random(Button_event+1,Time_event+1)); 
   }
-  attiny_sleep(); // Safe battery
+  attiny_sleep();                      // Safe battery
   
   // Optional: Check current
-  #ifdef Batterywarning
-    if (counter==0)                
-    {
+  #ifdef BatteryWarning
+    if (counter==0) {
      current=MeasureVCC();
      vref=1024*1.1f/(double)current;
-     if (vref<=minCurrent)            // Current below minimum
-     {
+     if (vref<=minCurrent) {          // Current below minimum    
        if (vref<=battLow) low=true;   // Power too low for JQ6500
        else JQ6500_play(Time_event+1);// NOKOLINO says "Beep"
      }
@@ -186,14 +184,13 @@ while(1)
   #endif
 
   // Optional: Check darkness
-  #ifdef Lightsensor
+  #ifdef LightSensor
     if (analogRead(A3)<=Darkness) dark=true;
     else dark=false;
   #endif
 }}
 
-void JQ6500_play(uint8_t f)          // Plays MP3 number f
-{               
+void JQ6500_play(uint8_t f) {        // Plays MP3 number f 
   mp3.write("\x7E\x03\x06");
   mp3.write(Volume);                 // Set volume
   mp3.write("\xEF");                 // JQ6500 looses volume settings after sleep... 
@@ -208,16 +205,14 @@ void JQ6500_play(uint8_t f)          // Plays MP3 number f
   attiny_sleep();
 }
 
-void attiny_sleep()                  // Sleep to save power
-{  
+void attiny_sleep() {                // Sleep to save power
   cbi(ADCSRA,ADEN);                  // Switch ADC off
   set_sleep_mode(SLEEP_MODE_PWR_DOWN); 
   sleep_mode();                                         
   sbi(ADCSRA,ADEN);                  // Switch ADC on
 }
 
-void setup_watchdog(uint8_t mode)    // Setup wake time
-{
+void setup_watchdog(uint8_t mode) {  // Setup wake time
   uint8_t bb;
   bb=mode & 7;
   if (mode > 7) bb|= (1<<5);
@@ -228,8 +223,7 @@ void setup_watchdog(uint8_t mode)    // Setup wake time
   WDTCR |= _BV(WDIE);
 }
 
-uint16_t MeasureVCC(void)            // Thank you, Tim!
-{
+uint16_t MeasureVCC(void) {          // Thank you, Tim!
   PRR    &=~_BV(PRADC); 
   ADCSRA  =_BV(ADEN)|_BV(ADPS2)|_BV(ADPS1)|_BV(ADPS0); 
   ADMUX   =_BV(REFS2) | 0x0c; 
@@ -240,7 +234,6 @@ uint16_t MeasureVCC(void)            // Thank you, Tim!
   return ADC;
 }
 
-ISR(WDT_vect)                       // Set global flag
-{
+ISR(WDT_vect) {                     // Set global flag
   f_wdt=1; 
 }
