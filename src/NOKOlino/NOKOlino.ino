@@ -153,7 +153,7 @@ while(1)
   // Wait for button or time and go to sleep - ~8 times/second         
   if (!low)                                       // Quiet if battery too low
   {
-    if (!(PINB & (1<<PB2))) 
+    if (!(PINB & (1<<PB0))) 
     {
       if (dark) {                                 // If fototransistor is available
         #ifdef SleepComplain                      // and complain feature enabled:

@@ -1,10 +1,10 @@
-/* NOKOlino V3.0 03.08.2019 - Nikolai Radke
+/* NOKOlino V3.1 03.08.2019 - Nikolai Radke
  *  
  *  Sketch for Mini-NOKO-Monster - NOT WORKING WITH V2.0 HARDWARE!
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
- *  Flash-Usage: 3.780 (1.8.9 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
+ *  Flash-Usage: 3.773 (1.8.9 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -61,9 +61,8 @@
 #endif
 
 // Optional - comment out with // to disable
-#define BatteryWarning              // Gives a warning when battery is low
-#define AutoCheck                   // Autocheck USB connection on Startup
-//#define LightSensor               // Will be quite in the dark
+#define Batterywarning              // Gives a warning when battery is low
+//#define Lightsensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
 #define StartupBeep                 // Will say "beep" when turned on
 
@@ -99,7 +98,7 @@ SoftwareSerial mp3(TX,RX);           // TX to D0, RX to D1
 
 int main(void) {
 
-#ifdef BatteryWarning
+#ifdef Batterywarning
   uint16_t current;
   double vref;
   uint16_t counter=10;               // Check shortly after startup
@@ -114,26 +113,10 @@ init(); {
 
   
   // Loop if there is a USB data connection for upload
-  setup_watchdog(6);                   // Set sleep time to 1000ms  
+  setup_watchdog(6);                 // Set sleep time to 1000ms  
   if (!(PINB & (1<<PB0))) {          // If button is pressed during startup
-    while(1) attiny_sleep();         // sleep forever to upload files to JQ6500
+    while(1) attiny_sleep();          // sleep forever to upload files to JQ6500
   }
-  #ifdef AutoCheck                     // Auto check USB connection?
-    attiny_sleep();                    // Wait. D+ needs some time to get current
-    if (analogRead(A1)>350) {          // Check D+ for data connection
-      USB=true;
-      while(USB) {                     // Loop
-        USB=false;
-        for (uint8_t i=0;i<3;i++) {    // Check three times
-          if (analogRead(A1)>350) USB=true;    
-          setup_watchdog(3);           // Wait for recheck
-          attiny_sleep();
-         }    
-      }
-      setup_watchdog(6);               // Give JQ6500 1 sec to settle down
-      attiny_sleep();
-    }
-  #endif
   
   // Start JQ6500
   mp3.begin(9600);
@@ -188,7 +171,7 @@ while(1) {
   attiny_sleep(); // Safe battery
   
   // Optional: Check current
-  #ifdef BatteryWarning
+  #ifdef Batterywarning
     if (counter==0) {
      current=MeasureVCC();
      vref=1024*1.1f/(double)current;
@@ -203,7 +186,7 @@ while(1) {
   #endif
 
   // Optional: Check darkness
-  #ifdef LightSensor
+  #ifdef Lightsensor
     if (analogRead(A3)<=Darkness) dark=true;
     else dark=false;
   #endif
