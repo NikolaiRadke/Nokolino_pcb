@@ -1,6 +1,6 @@
 /* NOKOlino V3.0 03.08.2019 - Nikolai Radke
  *  
- *  Sketch for Mini-NOKO-Monster - NOT WORKING WITH V2.0 HARDWARE!
+ *  Sketch for Mini-NOKO-Monster - NOT WORKING WITH V2.X HARDWARE!
  *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
@@ -63,8 +63,8 @@
 // Optional - comment out with // to disable
 #define BatteryWarning              // Gives a warning when battery is low
 #define AutoCheck                   // Autocheck USB connection on Startup
-//#define LightSensor               // Will be quite in the dark
-//#define SleepComplain             // Will complain if button pressed while its dark
+#define LightSensor               // Will be quite in the dark
+#define SleepComplain             // Will complain if button pressed while its dark
 #define StartupBeep                 // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
