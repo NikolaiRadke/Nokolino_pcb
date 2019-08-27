@@ -62,9 +62,9 @@
 
 // Optional - comment out with // to disable
 #define BatteryWarning              // Gives a warning when battery is low
-#define AutoCheck                   // Autocheck USB connection on Startup
-#define LightSensor               // Will be quite in the dark
-#define SleepComplain             // Will complain if button pressed while its dark
+//#define AutoCheck                 // Autocheck USB connection on Startup
+//#define LightSensor               // Will be quite in the dark
+//#define SleepComplain             // Will complain if button pressed while its dark
 #define StartupBeep                 // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
