@@ -2,6 +2,7 @@
 
 # 2019
   
+* **30.12.2019** New Nokolino V3.0 is comming early next year!   
 * **26.09.2019** Tested IDE 1.8.10. Still working.  
 * **27.08.2019** New linux upload and repair tool. The make command now works with Debian/Ubuntu/Mint.  
 * **05.08.2019** New release **V2.1-030819**.  
