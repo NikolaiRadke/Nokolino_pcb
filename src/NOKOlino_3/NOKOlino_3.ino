@@ -1,11 +1,11 @@
 /* Nokolino V3.0 30.12.2019 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster - NOT WORKING WITH V2.X HARDWARE!
- *  For Attiny85 | 8 Mhz - remember to flash your bootloader first
- *  For Attiny45 - disable ALL optional features to fit into flash
+ *  For ATtiny85 | 8 Mhz - remember to flash your bootloader first
+ *  For ATtiny45 - disable ALL optional features to fit into flash
  *  SoftwareSerial needs 8 MHz to work correctly
  *  
- *  Flash-Usage: 4.832 (1.8.10 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85 | BatteryWarning & StartupBeep)
+ *  Flash-Usage: 4.832 (1.8.10 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 | BatteryWarning & StartupBeep)
  *  
  *  Circuit:
  *  1: RST | PB5  free
