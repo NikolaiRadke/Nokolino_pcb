@@ -1,5 +1,9 @@
 # Newsblog
 
+# 2020  
+  
+  * Happy new year! The new V3.0 PCB-files are online. The wiki will be updated after testing was done.  
+
 # 2019
   
 * **30.12.2019** New Nokolino V3.0 is comming early next year!   
