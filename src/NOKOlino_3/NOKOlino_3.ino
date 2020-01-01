@@ -13,8 +13,8 @@
  *  3: A2  | PB4  Busy JQ6500 - 8
  *  4: GND        GND
  *  5: D0  | PB0  Button      - GND
- *  6: D1  | PB1  RX JQ6500   - 9   
- *  7: D2  | PB2  TX JQ6500   - 10       
+ *  6: D1  | PB1  TX JQ6500   - 10   
+ *  7: D2  | PB2  RX JQ6500   - 9       
  *  8: VCC        VCC
  *  
  *  Sleepmodes:
@@ -64,8 +64,8 @@
 #define battLow      3.50 +Offset   // Minimal voltage before JQ6500 fails
 
 // Hardware pins
-#define TX      2
-#define RX      1
+#define TX      1
+#define RX      2
 #define Busy    2
 
 // ADC and BOD
