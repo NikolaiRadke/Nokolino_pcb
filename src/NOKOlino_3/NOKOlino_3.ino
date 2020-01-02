@@ -1,11 +1,10 @@
-/* Nokolino V3.0 30.12.2019 - Nikolai Radke
+/* Nokolino V3.0 02.01.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster - NOT WORKING WITH V2.X HARDWARE!
- *  For ATtiny85 | 8 Mhz - remember to flash your bootloader first
- *  For ATtiny45 - disable ALL optional features to fit into flash
- *  SoftwareSerial needs 8 MHz to work correctly
+ *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
+ *  For ATtiny45 - disable battery warning to fit into flash
  *  
- *  Flash-Usage: 4.832 (1.8.10 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 | BatteryWarning & StartupBeep)
+ *  Flash-Usage: 4.220 (1.8.10 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 | BatteryWarning & StartupBeep)
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -85,7 +84,8 @@ uint16_t Time_event=79;
 volatile boolean f_wdt = 1;            // Volatile -> it is an interrupt routine
 boolean  low=false;
 boolean  dark=false;
-char     buffer[4];
+char     count_files;
+uint8_t  files_byte[4];
 
 SoftwareSerial mp3(TX,RX);             // TX to D2, RX to D1
 
@@ -113,17 +113,19 @@ init(); {
   // Start JQ6500
   mp3.begin(9600);
   mp3.write("\x7E\x02\x0C\xEF");       // Reset JQ6500
-  delay(500);
+  newdelay(500);
   mp3.write("\x7E\x03\x11\x04\xEF");   // No loop
-  delay(200);
+  newdelay(200);
   while (mp3.available()) mp3.read();  // Clear serial buffer
   mp3.write("\x7E\x02\x49\xEF");       // Count files on module
-  delay(10);
-  for (seed=0;seed<4;seed++) {         // Read 4 chars from module
-    buffer[seed] = mp3.read();
+  newdelay(10);
+  for (seed=0;seed<4;seed++) {         // Read 4 HEX chars from module
+    count_files=mp3.read();            // and convert the ASCII chars into uint16_t
+    if (count_files>=97) files_byte[seed]=(byte) count_files-87;
+    else files_byte[seed]=(byte) count_files-48;
   }
-  files=(byte) strtoul(buffer,0,16);   // Convert to unsigned int
-
+  files=4096*files_byte[0]+256*files_byte[1]+16*files_byte[2]+files_byte[3];
+  
   // Nokolino mode | else Music box mode
   if (files>1) {
     // Randomize number generator
@@ -149,14 +151,14 @@ init(); {
       Button_event=40;                 // Set to 32MBit if more files
       Time_event=163;
     }
-    #ifdef set_own                     // Or own voice set
+    #ifdef set_own                     // Or your own voice set
       Button__event=Button_event_own;
       Time_event=Time_event_own
     #endif
     
     // Optional startup beep
     #ifdef StartupBeep
-      delay(200);
+      newdelay(200);
       JQ6500_play(files);              // Nokolino says "Beep"
     #endif
   }
@@ -174,6 +176,7 @@ while(1) {
         #ifdef SleepComplain           // and complain feature enabled
           if (files>1) {               // and not in music box mode
             JQ6500_play(Time_event);   // complain when button pressed
+          }
         #endif
       }
       else if (files>1) JQ6500_play(random(0,Button_event+1)); // Button event
@@ -210,14 +213,14 @@ void JQ6500_play(uint8_t f) {          // Plays MP3 number f
   mp3.write("\x7E\x03\x06");
   mp3.write(Volume);                   // Set volume
   mp3.write("\xEF");                   // JQ6500 looses volume settings after sleep... 
-  delay(200);
+  newdelay(200);
   mp3.write("\x7E\x04\x03\x01");       // Play file number f
   mp3.write(f);
   mp3.write("\xEF");
-  delay(200);
+  newdelay(200);
   while (analogRead(A2)>maxInput) attiny_sleep(); // Check busy
   mp3.write("\x7E\x02\x0A\xEF");       // Go back to sleep, JQ6500!
-  delay(200);
+  newdelay(200);
 }
 
 void attiny_sleep() {                  // Sleep to save power  
@@ -225,6 +228,12 @@ void attiny_sleep() {                  // Sleep to save power
   set_sleep_mode(SLEEP_MODE_PWR_DOWN); 
   sleep_mode();                                         
   sbi(ADCSRA,ADEN);                    // Switch ADC on
+}
+
+void newdelay(uint16_t z)              // New delay function to save flash
+{
+  uint32_t zmillis=millis();
+  while (millis()-zmillis<z);
 }
 
 void setup_watchdog(uint8_t mode) {    // Setup wake time
