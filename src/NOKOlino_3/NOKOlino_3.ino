@@ -36,7 +36,7 @@
 //#define Breadboard                // Breadboard or PCB?
 
 // Own voice set?
-//#define Set_own                   // Up to 16k files - if they fit into the flash...
+//#define Set_own                   // Up to 64k files - if they fit into the flash...
 
 #ifdef Set_own
   #define Button_event_own 0        // Last button event number (XX.mp3)
