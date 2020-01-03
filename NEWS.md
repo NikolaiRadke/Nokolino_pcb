@@ -2,7 +2,7 @@
 
 # 2020  
   
- * **02.01.2020** New firmware **3.0-020120**. Reduced flash size. Remember, this Version will only run on coming PCBs.  
+ * **03.01.2020** New firmware **3.0-030120**. Reduced flash size. Remember, this version will only run on coming PCBs.  
  * **01.01.2020** Happy new year! The new V3.0 PCB-files are online. The wiki will be updated after testing was done.  
 
 # 2019
