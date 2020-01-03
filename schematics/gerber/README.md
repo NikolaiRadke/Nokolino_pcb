@@ -16,4 +16,4 @@ This version was never released. It went into a wrong direction.
 This release is not compatible with older firmware and adds the following enhancements:  
 * Light redesign for easier assembly. The battery can be attached more easy by two pins.  
 * Nokolino now supports new music box mode.  
-* It is possible now to upload new voice sets at every time. Nokolino autodetect it's size (80 or 164 files).  
+* It is possible now to upload new voice sets at every time. Nokolino autodetect it's size: 1 file for music box mode 80 for 16MBit modules or 164 files for 32MBit modules.  
