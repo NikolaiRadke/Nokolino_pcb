@@ -10,7 +10,7 @@
  *  2: A3  | PB3  Optional SFH300  
  *  3: A2  | PB4  Busy JQ6500 - 8
  *  5: D0  | PB0  Button      - GND
- *  6: D1  | PB1  TX JQ6500   - 10   
+ *  6: D1  | PB1  TX JQ6500   - 10   1
  *  7: D2  | PB2  RX JQ6500   - 9       
  *  8: VCC        VCC
  *  
@@ -99,6 +99,8 @@ init(); {
   // Power saving
   MCUCR |= _BV(BODS) | _BV(BODSE);     // Disable brown out detection - default?
   ACSR |= _BV(ACD);                    // Disable analog comparator - default?
+
+  // Port Setup
   DDRB &= ~(1<<PB0);                   // D0 INPUT
   PORTB |= (1<<PB0);                   // D0 HIGH 
 
