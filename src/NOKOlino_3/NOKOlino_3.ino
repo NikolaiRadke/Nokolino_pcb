@@ -1,16 +1,14 @@
-/* Nokolino V3.0 02.01.2020 - Nikolai Radke
+/* Nokolino V3.0 03.01.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster - NOT WORKING WITH V2.X HARDWARE!
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
- *  For ATtiny45 - disable battery warning to fit into flash
  *  
- *  Flash-Usage: 4.220 (1.8.10 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 | BatteryWarning & StartupBeep)
+ *  Flash-Usage: 4.094 (IDE 1.8.10 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
  *  2: A3  | PB3  Optional SFH300  
  *  3: A2  | PB4  Busy JQ6500 - 8
- *  4: GND        GND
  *  5: D0  | PB0  Button      - GND
  *  6: D1  | PB1  TX JQ6500   - 10   
  *  7: D2  | PB2  RX JQ6500   - 9       
@@ -105,7 +103,7 @@ init(); {
   PORTB |= (1<<PB0);                   // D0 HIGH 
 
   // Loop if there is a USB data connection for upload
-  setup_watchdog(6);                   // Set sleep time to 1000ms  
+  setup_watchdog(3);                   // Set sleep time to 128ms  
   if (!(PINB & (1<<PB0))) {            // If button is pressed during startup
     while(1) attiny_sleep();           // sleep forever to upload files to JQ6500
   }
@@ -164,7 +162,6 @@ init(); {
   }
   
   mp3.write("\x7E\x02\x0A\xEF");       // Sleep, JQ6500!
-  setup_watchdog(3);                   // Set sleep time to 128ms   
 }
 
 // Main loop
@@ -251,7 +248,7 @@ uint16_t MeasureVCC(void) {           // Thank you, Tim!
   PRR    &=~_BV(PRADC); 
   ADCSRA  =_BV(ADEN)|_BV(ADPS2)|_BV(ADPS1)|_BV(ADPS0); 
   ADMUX   =_BV(REFS2) | 0x0c; 
-  _delay_ms(1);  
+  newdelay(1); 
   ADCSRA  |=_BV(ADSC);
   while (!(ADCSRA&_BV(ADIF))); 
   ADCSRA  |=_BV(ADIF);
