@@ -2,6 +2,7 @@
 
 # 2020  
   
+ * **24.01.2020** New V3.0 PCBs are working great. New instructions and he new German wiki will follow next week.  
  * **03.01.2020** New firmware **3.0-030120**. Reduced flash size. Remember, this version will only run on coming PCBs.  
  * **01.01.2020** Happy new year! The new V3.0 PCB-files are online. The wiki will be updated after testing was done.  
 
