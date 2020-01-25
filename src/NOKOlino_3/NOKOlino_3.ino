@@ -9,6 +9,7 @@
  *  1: RST | PB5  free
  *  2: A3  | PB3  Optional SFH300  
  *  3: A2  | PB4  Busy JQ6500 - 8
+ *  4: GND |      GND
  *  5: D0  | PB0  Button      - GND
  *  6: D1  | PB1  TX JQ6500   - 10   1
  *  7: D2  | PB2  RX JQ6500   - 9       
