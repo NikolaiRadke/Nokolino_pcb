@@ -1,9 +1,9 @@
-/* Nokolino V3.0 03.01.2020 - Nikolai Radke
+/* Nokolino V3.0 11.02.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster - NOT WORKING WITH V2.X HARDWARE!
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 4.094 (IDE 1.8.10 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 4.076 (IDE 1.8.10 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -115,8 +115,6 @@ init(); {
   mp3.begin(9600);
   mp3.write("\x7E\x02\x0C\xEF");       // Reset JQ6500
   newdelay(500);
-  mp3.write("\x7E\x03\x11\x04\xEF");   // No loop
-  newdelay(200);
   while (mp3.available()) mp3.read();  // Clear serial buffer
   mp3.write("\x7E\x02\x49\xEF");       // Count files on module
   newdelay(10);
@@ -126,6 +124,7 @@ init(); {
     else files_byte[seed]=(uint8_t) count_files-48;
   }
   files=4096*files_byte[0]+256*files_byte[1]+16*files_byte[2]+files_byte[3];
+  newdelay(1250);                      // JQ6500 needs time to settle
   
   // Nokolino mode | else Music box mode
   if (files>1) {
@@ -159,7 +158,6 @@ init(); {
     
     // Optional startup beep
     #ifdef StartupBeep
-      newdelay(200);
       JQ6500_play(files);              // Nokolino says "Beep"
     #endif
   }

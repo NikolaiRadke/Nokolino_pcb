@@ -58,7 +58,7 @@
 //---------------------------------------------------------------------------------
 
 // Optional battery warning
-#define minCurrent   3.60 +Offset   // Low power warning current + measuring error
+#define minCurrent   3.50 +Offset   // Low power warning current + measuring error
 #define battLow      3.30 +Offset   // Minimal voltage before JQ8400 fails
 
 // Hardware pins
