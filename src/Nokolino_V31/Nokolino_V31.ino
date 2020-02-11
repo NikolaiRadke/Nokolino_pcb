@@ -1,4 +1,4 @@
-/* Nokolino V3.1 10.02.2020 - Nikolai Radke
+/* Nokolino V3.1 11.02.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster with new JQ8400 module
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
@@ -31,7 +31,7 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-//#define Breadboard                // Breadboard or PCB?
+#define Breadboard                // Breadboard or PCB?
 
 // Own voice set?
 //#define Set_own                   // Up to 64k files - if they fit into the flash...
