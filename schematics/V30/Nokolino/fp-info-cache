@@ -1,4 +1,4 @@
-16933179321214231
+16933189373775332
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -52247,44 +52247,44 @@ net tie
 0
 4
 4
-Nokolino
-ATTINY85-20PU
-8-lead dip package, row spacing 7.62 mm (300 mils)
-DIL DIP PDIP 2.54mm 7.62mm 300mil
-0
-8
-8
-Nokolino
-JQ6500-16p
-
+Nokolino32
+DS3231RTC
+RTC with battery
 
 0
-18
-18
-Nokolino
-K20.40
-K20.40
-Lautsprecher
+5
+5
+Nokolino32
+ESP32_Devkit_V1
+ESP32 Standard Board
+Through hole pin header THT 1x15 2.54mm single row
+0
+60
+30
+Nokolino32
+Elko_1F_disc
+1F Speicherkondensator
+
 0
 2
 2
-Nokolino
-K20.40_mount
-K20.40
-Lautsprecher
-0
-0
-0
-Nokolino
-Nokolino_logo
-
+Nokolino32
+Elko_1F_radial
+1F Speicherkondensator
 
 0
+2
+2
+Nokolino32
+MAX98357A
+I2S Amplifier
+Integrated Circuit
 0
-0
-Nokolino
-TP4056-Protect
-
+9
+9
+Nokolino32
+TP5000-Protect
+TP5000 LiFePo4 Charger
 
 0
 6

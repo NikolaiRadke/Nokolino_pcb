@@ -1,0 +1,24 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ATTINY85-20PU
+D Atmel ATtiny85 MCU
+$ENDCMP
+#
+$CMP JQ6500
+D JQ6500 MP3 Module
+K MP3 JQ6500 module
+$ENDCMP
+#
+$CMP JQ8400
+D JQ8400 MP3 Module
+$ENDCMP
+#
+$CMP K20.40
+D Speaker
+$ENDCMP
+#
+$CMP TP5000
+D TP4056 LiPo Charger
+$ENDCMP
+#
+#End Doc Library

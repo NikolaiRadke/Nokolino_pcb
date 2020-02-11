@@ -1,0 +1,392 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Nokolino Leiterplatte"
+Date "2020-01-24"
+Rev "3.0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:GND #PWR01
+U 1 1 5A5CBB7E
+P 8150 5450
+F 0 "#PWR01" H 8150 5200 50  0001 C CNN
+F 1 "GND" H 8150 5300 50  0000 C CNN
+F 2 "" H 8150 5450 50  0001 C CNN
+F 3 "" H 8150 5450 50  0001 C CNN
+	1    8150 5450
+	-1   0    0    -1  
+$EndComp
+NoConn ~ 5250 5050
+$Comp
+L power:GND #PWR02
+U 1 1 5A5CD6BD
+P 3300 5400
+F 0 "#PWR02" H 3300 5150 50  0001 C CNN
+F 1 "GND" H 3300 5250 50  0000 C CNN
+F 2 "" H 3300 5400 50  0001 C CNN
+F 3 "" H 3300 5400 50  0001 C CNN
+	1    3300 5400
+	1    0    0    -1  
+$EndComp
+Text GLabel 8150 4350 1    60   Input ~ 0
+VCC
+Wire Wire Line
+	3300 3500 3300 4000
+Connection ~ 3300 4000
+Wire Wire Line
+	4000 3500 4000 4000
+Connection ~ 4000 4000
+Wire Wire Line
+	7950 5050 8150 5050
+Wire Wire Line
+	8150 5050 8150 5450
+Wire Wire Line
+	2550 4000 2750 4000
+Wire Wire Line
+	4100 3500 4100 4550
+Connection ~ 4000 3500
+Text GLabel 5400 3550 0    60   Input ~ 0
+VCC
+$Comp
+L power:GND #PWR04
+U 1 1 5A5CE16D
+P 4650 3650
+F 0 "#PWR04" H 4650 3400 50  0001 C CNN
+F 1 "GND" H 4650 3500 50  0000 C CNN
+F 2 "" H 4650 3650 50  0001 C CNN
+F 3 "" H 4650 3650 50  0001 C CNN
+	1    4650 3650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 3350 4650 3450
+Text GLabel 5750 2800 1    60   Input ~ 0
+D+
+Text GLabel 5950 2800 1    60   Input ~ 0
+D-
+Wire Wire Line
+	5750 2800 5750 2900
+Wire Wire Line
+	5950 2800 5950 2900
+Text GLabel 1850 3750 1    39   Input ~ 0
+Akku+
+Wire Wire Line
+	1850 3850 1850 3750
+Text GLabel 2050 3750 1    39   Input ~ 0
+Akku-
+Wire Wire Line
+	2050 3850 2050 3750
+Text GLabel 1300 3450 2    39   Input ~ 0
+Akku+
+Text GLabel 1300 3350 2    39   Input ~ 0
+Akku-
+Text GLabel 1300 2800 2    39   Input ~ 0
+USB+
+Wire Wire Line
+	1200 2800 1300 2800
+Text GLabel 1300 2700 2    39   Input ~ 0
+D-
+Text GLabel 1300 2600 2    39   Input ~ 0
+D+
+Wire Wire Line
+	1200 2600 1300 2600
+Wire Wire Line
+	1200 2700 1300 2700
+Text GLabel 1250 4000 0    39   Input ~ 0
+USB+
+Text GLabel 1250 4500 0    39   Input ~ 0
+USB-
+Wire Wire Line
+	1250 4000 1350 4000
+Wire Wire Line
+	1250 4500 1350 4500
+Text GLabel 1300 2900 2    39   Input ~ 0
+USB-
+Wire Wire Line
+	1200 2900 1300 2900
+Wire Wire Line
+	1200 2400 1300 2400
+Wire Wire Line
+	2550 4500 2750 4500
+Connection ~ 4650 3450
+$Comp
+L Device:R R1
+U 1 1 5B8E9345
+P 4325 5925
+F 0 "R1" V 4405 5925 50  0000 C CNN
+F 1 "220k" V 4325 5925 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4255 5925 50  0001 C CNN
+F 3 "" H 4325 5925 50  0001 C CNN
+	1    4325 5925
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 5B8E9388
+P 4325 6175
+F 0 "#PWR08" H 4325 5925 50  0001 C CNN
+F 1 "GND" H 4325 6025 50  0000 C CNN
+F 2 "" H 4325 6175 50  0001 C CNN
+F 3 "" H 4325 6175 50  0001 C CNN
+	1    4325 6175
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4325 6075 4325 6175
+$Comp
+L Device:Q_Photo_NPN Q1
+U 1 1 5B8E9428
+P 4225 5425
+F 0 "Q1" H 4000 5350 50  0000 L CNN
+F 1 "Q_Photo_NPN" H 3800 5250 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4425 5525 50  0001 C CNN
+F 3 "" H 4225 5425 50  0001 C CNN
+	1    4225 5425
+	1    0    0    -1  
+$EndComp
+Text GLabel 4325 5125 1    60   Input ~ 0
+VCC
+Wire Wire Line
+	4325 5125 4325 5225
+Wire Wire Line
+	4325 5625 4325 5700
+Wire Wire Line
+	5250 4850 4750 4850
+Wire Wire Line
+	4750 4850 4750 5700
+Wire Wire Line
+	4750 5700 4325 5700
+Connection ~ 4325 5700
+Wire Wire Line
+	4000 3500 4100 3500
+Wire Wire Line
+	4650 3450 4650 3650
+Wire Wire Line
+	4325 5700 4325 5775
+$Comp
+L Connector_Generic:Conn_01x02 J2
+U 1 1 5CB2516F
+P 1000 3450
+F 0 "J2" H 920 3125 50  0000 C CNN
+F 1 "Conn_01x02" H 920 3216 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1000 3450 50  0001 C CNN
+F 3 "~" H 1000 3450 50  0001 C CNN
+	1    1000 3450
+	-1   0    0    1   
+$EndComp
+Text GLabel 1300 2400 2    60   Input ~ 0
+VCC
+Wire Wire Line
+	2750 2500 2750 4000
+$Comp
+L power:GND #PWR0101
+U 1 1 5CB3449E
+P 2750 4500
+F 0 "#PWR0101" H 2750 4250 50  0001 C CNN
+F 1 "GND" H 2755 4327 50  0000 C CNN
+F 2 "" H 2750 4500 50  0001 C CNN
+F 3 "" H 2750 4500 50  0001 C CNN
+	1    2750 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 4550 4100 4550
+Wire Wire Line
+	1300 3350 1200 3350
+Wire Wire Line
+	1300 3450 1200 3450
+Wire Wire Line
+	8150 4350 8150 4550
+Wire Wire Line
+	8150 4550 7950 4550
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5E1108E9
+P 4650 3350
+F 0 "#FLG0101" H 4650 3425 50  0001 C CNN
+F 1 "PWR_FLAG" H 4650 3500 50  0000 C CNN
+F 2 "" H 4650 3350 50  0001 C CNN
+F 3 "" H 4650 3350 50  0001 C CNN
+	1    4650 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 2500 2750 2500
+$Comp
+L Nokolino:TP4056 U1
+U 1 1 5E2BE387
+P 1950 4250
+F 0 "U1" H 1950 4150 60  0000 C CNN
+F 1 "TP4056" H 1950 4250 60  0000 C CNN
+F 2 "Nokolino:TP4056-Protect" H 1900 4150 60  0001 C CNN
+F 3 "" H 1900 4150 60  0001 C CNN
+	1    1950 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Nokolino:K20.40 LS1
+U 1 1 5E2BEC4E
+P 7250 3250
+F 0 "LS1" H 7420 3246 50  0000 L CNN
+F 1 "K20.40" H 7420 3155 50  0000 L CNN
+F 2 "Nokolino:K20.40" H 7250 3050 50  0001 C CNN
+F 3 "" H 7240 3200 50  0001 C CNN
+	1    7250 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x06 J1
+U 1 1 5CB28317
+P 1000 2700
+F 0 "J1" H 920 2175 50  0000 C CNN
+F 1 "Conn_01x06" H 920 2266 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 1000 2700 50  0001 C CNN
+F 3 "~" H 1000 2700 50  0001 C CNN
+	1    1000 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Nokolino:ATTINY85-20PU U2
+U 1 1 5E2BC02D
+P 6600 4800
+F 0 "U2" H 6600 4250 50  0000 C CNN
+F 1 "ATtiny" H 6600 4350 50  0000 C CNN
+F 2 "Nokolino:ATTINY85-20PU" H 7600 4800 50  0001 C CIN
+F 3 "" H 6600 4800 50  0001 C CNN
+	1    6600 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 3500 4000 3500
+Wire Wire Line
+	3300 4000 3450 4000
+Wire Wire Line
+	3850 4000 4000 4000
+Wire Wire Line
+	3300 3500 3450 3500
+Wire Wire Line
+	3300 4000 3300 4500
+Connection ~ 3300 4500
+Wire Wire Line
+	3300 4500 3450 4500
+$Comp
+L Switch:SW_Push SW1
+U 1 1 5E2DABD5
+P 3650 3500
+F 0 "SW1" H 3650 3785 50  0000 C CNN
+F 1 "SW_Push" H 3650 3694 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH_6mm_H13mm" H 3650 3700 50  0001 C CNN
+F 3 "~" H 3650 3700 50  0001 C CNN
+	1    3650 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW2
+U 1 1 5E2DB403
+P 3650 4000
+F 0 "SW2" H 3650 4285 50  0000 C CNN
+F 1 "SW_Push" H 3650 4194 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH_6mm_H13mm" H 3650 4200 50  0001 C CNN
+F 3 "~" H 3650 4200 50  0001 C CNN
+	1    3650 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW3
+U 1 1 5E2DB8C7
+P 3650 4500
+F 0 "SW3" H 3650 4785 50  0000 C CNN
+F 1 "SW_Push" H 3650 4694 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH_6mm_H13mm" H 3650 4700 50  0001 C CNN
+F 3 "~" H 3650 4700 50  0001 C CNN
+	1    3650 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW4
+U 1 1 5E2DBF5E
+P 3650 5000
+F 0 "SW4" H 3650 5285 50  0000 C CNN
+F 1 "SW_Push" H 3650 5194 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH_6mm_H13mm" H 3650 5200 50  0001 C CNN
+F 3 "~" H 3650 5200 50  0001 C CNN
+	1    3650 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 4500 3300 5000
+Wire Wire Line
+	3300 5000 3450 5000
+Connection ~ 3300 5000
+Wire Wire Line
+	3300 5000 3300 5400
+Wire Wire Line
+	3850 5000 4000 5000
+Wire Wire Line
+	4000 4000 4000 4500
+Wire Wire Line
+	4000 4500 3850 4500
+Connection ~ 4000 4500
+Wire Wire Line
+	4000 4500 4000 5000
+Wire Wire Line
+	4650 3450 5400 3450
+Wire Wire Line
+	5250 4950 5000 4950
+Wire Wire Line
+	5000 4950 5000 3150
+Wire Wire Line
+	5000 3150 5400 3150
+Wire Wire Line
+	5250 4750 5050 4750
+Wire Wire Line
+	5050 4750 5050 3250
+Wire Wire Line
+	5050 3250 5400 3250
+$Comp
+L Nokolino:JQ8400 U3
+U 1 1 5E30E42B
+P 5850 3500
+F 0 "U3" H 5950 3500 50  0001 C CNN
+F 1 "JQ8400" V 6150 3350 50  0000 L CNN
+F 2 "Nokolino:JQ8400-10p" H 5950 3500 50  0001 C CNN
+F 3 "" H 5950 3500 50  0001 C CNN
+	1    5850 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 4650 5100 4650
+Wire Wire Line
+	5100 4650 5100 3350
+Wire Wire Line
+	5100 3350 5400 3350
+Wire Wire Line
+	5400 3950 5400 4100
+Wire Wire Line
+	5400 4100 6650 4100
+Wire Wire Line
+	6650 4100 6650 3250
+Wire Wire Line
+	6650 3250 7050 3250
+Wire Wire Line
+	5400 3850 5300 3850
+Wire Wire Line
+	5300 3850 5300 4200
+Wire Wire Line
+	5300 4200 6750 4200
+Wire Wire Line
+	6750 4200 6750 3350
+Wire Wire Line
+	6750 3350 7050 3350
+NoConn ~ 5400 3050
+NoConn ~ 5400 3650
+NoConn ~ 5400 3750
+$EndSCHEMATC
