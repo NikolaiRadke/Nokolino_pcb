@@ -3,6 +3,7 @@
 # 2020  
   
  * **14.02.2020** Nokolino doesn't need glue anymore! You can 3D print your own M2 button caps and connect the new upper PCB with the four buttons by a M2 6mm screw. Surely, old glue cabs are still working.      
+ * **13.02.2020** Testet IDE 1.8.11. Again, it's working.  
  * **11.02.2020**:
    * New firmware **3.1-110220**: Optimized operating voltage range for new JQ8400.  
    * New firmware **3.0-110220**: Reduced flash size and fixed missing optional startup beep.  
