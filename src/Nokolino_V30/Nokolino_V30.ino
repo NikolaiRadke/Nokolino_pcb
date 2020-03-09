@@ -3,7 +3,7 @@
  *  Sketch for Mini-Noko-Monster - NOT WORKING WITH V2.X HARDWARE!
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 4.076 (IDE 1.8.10 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 4.076 (IDE 1.8.11 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
