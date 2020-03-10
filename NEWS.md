@@ -2,15 +2,17 @@
 
 # 2020  
   
- * **14.02.2020** Nokolino doesn't need glue anymore! You can 3D print your own M2 button caps and connect the new upper PCB with the four buttons by a M2 6mm screw. Surely, old glue cabs are still working.      
- * **13.02.2020** Testet IDE 1.8.11. Again, it's working.  
- * **11.02.2020**:
-   * New firmware **3.1-110220**: Optimized operating voltage range for new JQ8400.  
-   * New firmware **3.0-110220**: Reduced flash size and fixed missing optional startup beep.  
- * **10.02.2020** Good news: Bigger JQ6500 modules with 32MBit are getting rare. I made an alternative Version V3.1 for the cheap and easy to buy **JQ8400-10p** module with 32MBit too. The software is working and the new PCBs are ordered. Stay tuned!
- * **24.01.2020** New V3.0 PCBs are working great. New instructions and the new German wiki will follow next month.  
- * **03.01.2020** New firmware **3.0-030120**. Reduced flash size. Remember, this version will only run on coming PCBs.  
- * **01.01.2020** Happy new year! The new V3.0 PCB-files are online. The wiki will be updated after testing was done.  
+* **09.03.2020** New PCBs arrived! The top board fits perfectly to the new designed M2 screw button caps. The V3.1 with alternative JQ8400 module will be tested soon.  
+* **08.03.2020** Tested IDE 1.8.12. Yeah, working.  
+* **14.02.2020** Nokolino doesn't need glue anymore! You can 3D print your own M2 button caps and connect the new upper PCB with the four buttons by a M2 6mm screw. Surely, old glue cabs are still working.      
+* **13.02.2020** Testet IDE 1.8.11. Again, it's working.  
+* **11.02.2020**:
+  * New firmware **3.1-110220**: Optimized operating voltage range for new JQ8400.  
+  * New firmware **3.0-110220**: Reduced flash size and fixed missing optional startup beep.  
+* **10.02.2020** Good news: Bigger JQ6500 modules with 32MBit are getting rare. I made an alternative Version V3.1 for the cheap and easy to buy **JQ8400-10p** module with 32MBit too. The software is working and the new PCBs are ordered. Stay tuned!
+* **24.01.2020** New V3.0 PCBs are working great. New instructions and the new German wiki will follow next month.  
+* **03.01.2020** New firmware **3.0-030120**. Reduced flash size. Remember, this version will only run on coming PCBs.  
+* **01.01.2020** Happy new year! The new V3.0 PCB-files are online. The wiki will be updated after testing was done.  
 
 # 2019
   
