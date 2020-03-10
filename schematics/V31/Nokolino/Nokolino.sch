@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "Nokolino Leiterplatte"
 Date "2020-01-24"
-Rev "3.0"
+Rev "3.1"
 Comp ""
 Comment1 ""
 Comment2 ""
