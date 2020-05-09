@@ -195,7 +195,7 @@ while(1) {
        else JQ6500_play(Time_event+1); // Nokolino says "Beep"
      }
      else low=false;
-     counter=400;                      // Every minute, 50x 128ms + some sleeping ms
+     counter=400;                      // Every minute, 400x128ms+some runtime ms for 60s
     }
     counter--;
   #endif

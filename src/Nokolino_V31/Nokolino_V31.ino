@@ -1,9 +1,9 @@
-/* Nokolino V3.1 11.02.2020 - Nikolai Radke
+/* Nokolino V3.1 09.05.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster with new JQ8400 module
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 3.988 (IDE 1.8.11 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 3.906 (IDE 1.8.11 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -31,16 +31,10 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
+#define Button_event 40             // Last button event number (XX.mp3)
+#define Time_event   163            // Last time event number -> Very last file is "beep"
+
 //#define Breadboard                // Breadboard or PCB?
-
-// Own voice set?
-//#define Set_own                   // Up to 64k files - if they fit into the flash...
-
-#ifdef Set_own
-  #define Button_event_own 0        // Last button event number (XX.mp3)
-  #define Time_event_own   0        // Last time event number
-#endif
-
 #ifdef Breadboard
   #define Offset       0.3          // Battery measuring error
   #define maxInput     50           // Max. value from busy line 
@@ -50,10 +44,10 @@
 #endif
 
 // Optional - comment out with // to disable o remove // to enable
+#define StartupBeep                 // Will say "beep" when turned on
 #define BatteryWarning              // Gives a warning when battery is low
 //#define LightSensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
-#define StartupBeep                 // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
@@ -78,8 +72,6 @@
 
 // Variables
 uint16_t address,seed,files;
-uint16_t Button_event=30;
-uint16_t Time_event=79;
 volatile boolean f_wdt = 1;            // Volatile -> it is an interrupt routine
 boolean  low=false;
 boolean  dark=false;
@@ -140,23 +132,18 @@ init(); {
     }
     randomSeed(seed);                  // Randomize
     seed++;                            // New seed
-    eeprom_write_word(address,seed);   // Save new seed for next startup
+    eeprom_write_word(address,seed);   // Save new seed for next startup    
 
-    // Select voice set
-    if (files>80) {                    // Preset is 16MBit
-      Button_event=40;                 // Set to 32MBit if more files
-      Time_event=163;
-    }
-    #ifdef set_own                     // Or your own voice set
-      Button__event=Button_event_own;
-      Time_event=Time_event_own
-    #endif
-    
     // Optional startup beep
-    #ifdef StartupBeep
-      JQ8400_play(files);              // Nokolino says "Beep"
-    #endif
-  }
+    #ifdef StartupBeep    
+      JQ8400_play(Time_event+1);       // Nokolino says "Beep"
+      newdelay(1000);                  // Busy is not working well afer startup
+    #endif 
+  }   
+  mp3.write("\xAA\x04");               // Stop and sleep        
+  mp3.write((uint8_t) 0x00);           // Needed for Music box mode
+  mp3.write(0xAE);                     // and no startup beep
+  newdelay(100);
 }
 
 // Main loop
@@ -189,7 +176,7 @@ while(1) {
        else JQ8400_play(Time_event+1); // Nokolino says "Beep"
      }
      else low=false;
-     counter=400;                      // Every minute, 50x 128ms + some sleeping ms
+     counter=400;                      // Every minute, 400x128ms+some runtime ms for 60s
     }
     counter--;
   #endif
@@ -208,6 +195,7 @@ void JQ8400_play(uint8_t f) {          // Plays MP3 file
   mp3.write((uint8_t) 179+f);          // Calculate und wirte checksum
   newdelay(100);
   while (analogRead(A2)>maxInput) attiny_sleep(); // Check busy
+  newdelay(100);
  }
 
 void attiny_sleep() {                  // Sleep to save power  
