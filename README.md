@@ -1,6 +1,6 @@
 # ![Nokolino](http://www.nikolairadke.de/NOKOlino_2/nokolino_klein3.png) Nokolino (PCB)  
   
-*** **This Repository is currently under reconstruction - 02.06.2020** ***
+*** **This Repository is currently under reconstruction - 03.06.2020** ***
 
 The ATtiny-based litte brother of Noko. Tiny and cute. And everyone is invited to **contribute**. Nokolino is for everyone. This repository is for the **PCB** version of Nokolino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/PCB.md) on how to get your own boards. Do you own a complete kit? Look [here](https://github.com/NikolaiRadke/Nokolino).    
   
