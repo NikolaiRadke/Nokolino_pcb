@@ -69,12 +69,11 @@ Nokolino/
 └── src/
     ATtiny sketch
     └── Nokolino/
-        One file, no libraries, no frills. Just NOKOlino. 
+        One file, no libraries, no frills. Just Nokolino. 
 ```
 ### Let's get started!
 
-Interested in Nokolino? Great! Let's start here:  
-[German wiki](https://github.com/NikolaiRadke/NOKOlino_2/wiki).  
+Interested in Nokolino? Great! Let's start here: [German wiki](https://github.com/NikolaiRadke/Nokolino_pcb/wiki).  
 English wiki will follow. One day...
 
 
