@@ -1,4 +1,4 @@
-# ![Nokolino](http://www.nikolairadke.de/NOKOlino_2/nokolino_klein3.png) Nokolino (PCB)  
+# ![Nokolino](http://www.nikolairadke.de/Nokolino/nokolino_back.jpg)  
   
 *** **This Repository is currently under reconstruction - 03.06.2020** ***
 
