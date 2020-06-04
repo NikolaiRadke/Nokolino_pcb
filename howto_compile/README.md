@@ -1,6 +1,6 @@
-# Compiling instructions for NOKOlino
+# Compiling instructions for Nokolino
 
-In order to flash your ATtiny with the NOKOlino-sketch, you need the **Arduino-IDE** (1.6.6 odr higher), with installed **ATtiny-support** and an **Arduino** connected to your microcontroller.
+In order to flash your ATtiny with the NOKOlino-sketch, you need the **Arduino-IDE** (1.6.6 or higher), with installed **ATtiny support** and an **Arduino** connected to your microcontroller.
 
 ### Preparing the IDE  
  
@@ -36,19 +36,19 @@ In order to flash your ATtiny with the NOKOlino-sketch, you need the **Arduino-I
 
 Now you can flash your ATtiny with any sketch you want! But this time, we focus on NOKOlino.  
 
-### Configuring NOKOlino.ino
+### Configuring Nokolino.ino
 
 1. Set the avarage talking interval in line 31 (10 for 10 minutes is preset).  
-2. Set the volume in line 32. 25 is recommended for NOKOlino, 22 for NOKOlina.  
-3. Are you building NOKOlino on a breadboard? Set line 35.  
+2. Set the volume in line 32. 25 is recommended for Nokolino, 22 for Nokolina.  
+3. Are you building Nokolino on a breadboard? Set line 35.  
 4. Select your voice set in line 38, 39 or 40  
 5. If you don't want any battery warnings, comment out line 64.  
-6. If you want NOKOlino to be quiet on startup, comment out line 67.  
+6. If you want Nokolino to be quiet on startup, comment out line 67.  
 7. Check line 65 and 66 if you are using the optional light sensor.  
 
-### Flashing NOKOlino firmware
+### Flashing Nokolino firmware
   
-1. Open sketch **NOKOlino.ino**.  
+1. Open sketch **Nokolino.ino**.  
 2. Upload the sketch.  
 3. DONE.  
 
