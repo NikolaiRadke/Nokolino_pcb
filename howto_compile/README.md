@@ -34,7 +34,7 @@ In order to flash your ATtiny with the Nokolino-sketch, you need the **Arduino-I
 5. Select ``` Tools > Clock > 8 MHz (internal) ```.  
 6. Start burning process with ``` Tools > Burn Bootloader ```.  
 
-Now you can flash your ATtiny with any sketch you want! But this time, we focus on NOKOlino.  
+Now you can flash your ATtiny with any sketch you want! But this time, we focus on Nokolino.  
 
 ### Configuring Nokolino.ino
 
