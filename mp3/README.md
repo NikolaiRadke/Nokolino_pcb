@@ -1,14 +1,20 @@
-# Voice set for NOKOlino - German
+# Voice set for Nokolino - German
 
-There are foursets: a large male and a large female voice. Both need a **32 MBit** or bigger variant of the JQ6500 module. If you have an older, smaller **16 MBit** variant of the module, you need the smaller male or female version.  
+Here you find four voice sets: Nokolino for the male and Nokolina for the female version, each with 2MB for **16 MBit JQ6500** modules and 4MB for the **32 MBit JQ6500 and JQ8400** modules.  
 
-Copy these mp3s on the JQ6500 module. Strictly observe the sequence!
-021.mp3 must be copied as the 21st file. See the [Wiki](https://github.com/NikolaiRadke/NOKOlino_2/wiki/MP3s-aufspielen) for more 
-detailed instructions.  
-
-**Windows** users can use the (chinese) interface. See this [instructions](http://sparks.gogo.co.nz/jq6500/index.html), written by James Sleeman. **Linux** and **Mac** users should try the [uploading tool](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/linux_uploader), written by Max Reinhard.  
+## JQ8400  
   
-**32 Mbit:**  
+Plug in your JQ8400-module or Nokolino, delete the old files and copy the new mp3s on the module. Strictly observe the sequence! 021.mp3 must be copied as the 21st file. See the Wiki for more detailed instructions.
+
+Linux and Mac can copy the files by simply marking them all and draging them into the folder. Windows has it's issues with the copying sequence. You can either copy them one by one oder use a copy tool like SmartCopyTool.
+
+## JQ6500
+  
+**Windows** users can use the (chinese) interface. See this [instructions](http://sparks.gogo.co.nz/jq6500/index.html), written by James Sleeman. if you want an English interface or is the interface missing, look at my [JQ6500 rescue tool](https://github.com/NikolaiRadke/JQ6500-rescue-tool).  
+  
+**Linux** and **Mac** users should try the [uploading tool](https://github.com/NikolaiRadke/Nokolino/tree/master/linux_uploader), written by Max Reinhard.  
+  
+**4MB**  
 
 | Number  | Assignment               |
 | --------|-------------------------:|
@@ -16,7 +22,7 @@ detailed instructions.
 | 041-163 | Time based events        |
 | 164     | BEEP battery warning     |
   
-**16 Mbit:**  
+**2MB**  
 
 | Number  | Assignment               |
 | --------|-------------------------:|
@@ -29,9 +35,9 @@ He has done a great job - moreover I don't want to listen to my own voice every 
 
 ### Your own voice set  
   
-You want to use your own files? No problem. Look into the sketch **NOKOlino.ino**, set the definition **Set_own** and change the lines  
+You want to use your own files? No problem. Look into the sketch **Nokolino.ino**, set the definition **Set_own** and change the lines  
 ``` #define Button_event  0 ```  for the last voice file when the button is pressed and  
 ``` #define Time_event   0``` for the last voice file for the time based events.  
 The *beep* for the battery warning should be the last file.  
   
-Keep in your mind, that the device ist limited to **4Mbyte - 256kb** or **2Mbyte - 256kb**!  
+Keep in your mind, that the **JQ6500** memory is limited to **4Mbyte - 256kb** or **2Mbyte - 256kb**!  
