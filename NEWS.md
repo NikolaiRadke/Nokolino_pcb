@@ -1,7 +1,8 @@
 # Newsblog
 
 # 2020  
-
+  
+* **04.06.2020** Finished the repository.  
 * **03.06.2020** Started reworking this repository and the wiki.  
 * **02.06.2020** The Nokolino kit and the new repository is ready!    
 * **26.03.2020** Finally, i found the last missing part for the new Nokolino kit: A solderless USB plug! The wiki will be updated very soon.   
