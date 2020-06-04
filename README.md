@@ -37,22 +37,27 @@ Nokolino/
 |
 ├── mp3/
 |   Voice sets for the 32MBit- & 16MBit-JQ6500 in German. English needed? Contribute!
-|   ├── male/
-|   |   Male voice set, spoken by Carsten Caniglia.
-|   |   ├── mp3_16MBit/
-|   |   |   80 files for smaller (2MiB) modules.
-|   |   └── mp3_32Bit/
-|   |       164 files for recommended (4MiB) modules.
-|   └── female/
+|   ├── Nokolino/
+|   |   Male voice sets, spoken by Carsten Caniglia.
+|   |   ├── 2MB/
+|   |   |   80 files for smaller (16 MBit) modules.
+|   |   └── 4MB/
+|   |       164 files for recommended (32 MBit) modules.
+|   └── Nokolina/
 |       Female voice set, spoken by Norma Anthes
-|       |   80 files for smaller (2MiB) modules.
-|       └── mp3_32Bit/
-|           164 files for recommended (4MiB) modules.
+|       ├── 2MB/
+|       |   80 files for smaller (16 MBit) modules.
+|       └── 4MB/
+|           164 files for recommended (32 MBit) modules.
 |
 ├── schematics/
-|   The schematics for the Nokolino parts, the sewing pattern and shopping list.
+|   The circuit diagrams, cab 3D-model, sewing pattern and shopping list.  
 |   └── gerber/
 |       The gerber files for the PCB to build by your own.
+|       ├── V3.0/
+|       |   The gerbers for the JQ6500 module.
+|       └── V3.1/
+|           The gerbers for the JQ8400 module.
 |
 └── src/
     ATtiny sketches
