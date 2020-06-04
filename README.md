@@ -22,28 +22,20 @@ Right now, the building wiki, the voice set and the manual are in German. I'll t
   
 ### Prerequisites
   
-Nokolino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `NOKOlino_2/src/NOKOlino/` into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/howto_compile) for further instructions. 
+Nokolino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `Nokolino/src/V3.0/Nokolino/` for the **JQ6500** module or `Nokolino/src/V3.1/Nokolino/` for the **JQ8400** module into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/Nokolino_pcb/tree/master/howto_compile) for further instructions. 
   
 ### Content
 
 ```
 Nokolino/
 ├── howto_compile/
-|   Manual how compile the sketches in your Arduino IDE and precompiled sketched  
-|   └── precompiled/
-|       Precompiled hex files
-|       ├── ATtiny45/
-|       |   Version for the ATtiny45.
-|       └── ATtiny85/
-|           Version for the ATtiny85.
+|   Manual how compile the sketches in your Arduino IDE.
 |
 ├── linux_uploader/
 |   Tool for uploading MP3-files to the JQ6500.
 |
 ├── manual/
-|   Nokolino manual in PDF format and a template for a packaging design.
-|   └── scribus/
-|       Source documents for Scribus with all illustrations and fonts.
+|   Nokolino manuals in PDF format.
 |
 ├── mp3/
 |   Voice sets for the 32MBit- & 16MBit-JQ6500 in German. English needed? Contribute!
@@ -61,15 +53,17 @@ Nokolino/
 |
 ├── schematics/
 |   The schematics for the Nokolino parts, the sewing pattern and shopping list.
-|   ├── geda/
-|   |   Source documents for gEDA.  
 |   └── gerber/
 |       The gerber files for the PCB to build by your own.
 |
 └── src/
-    ATtiny sketch
-    └── Nokolino/
-        One file, no libraries, no frills. Just Nokolino. 
+    ATtiny sketches
+    ├── V3.0/
+    |   └── Nokolino/
+    |       The sketch for the JQ6500 module.
+    └── V3.1/
+        └── Nokolino/
+            The sketch for the JQ8400 module.
 ```
 ### Let's get started!
 
