@@ -4,7 +4,8 @@
 
 * **03.06.2020** Started reworking this repository and the wiki.  
 * **02.06.2020** The Nokolino kit and the new repository is ready!    
-* **26.03.2020** Finally, i found the last missing part for the new Nokolino kit: A solderless USB plug! The wiki will be updated very soon.      
+* **26.03.2020** Finally, i found the last missing part for the new Nokolino kit: A solderless USB plug! The wiki will be updated very soon.   
+* **22.03.2020** The V3.1 boards for the JQ8400 modules are working.  
 * **09.03.2020** New PCBs arrived! The top board fits perfectly to the new designed M2 screw button caps. The V3.1 with alternative JQ8400 module will be tested soon.  
 * **08.03.2020** Tested IDE 1.8.12. Yeah, working.  
 * **14.02.2020** Nokolino doesn't need glue anymore! You can 3D print your own M2 button caps and connect the new upper PCB with the four buttons by a M2 6mm screw. Surely, old glue cabs are still working.      
