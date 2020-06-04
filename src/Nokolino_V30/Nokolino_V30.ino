@@ -1,9 +1,9 @@
-/* Nokolino V3.0 11.02.2020 - Nikolai Radke
+/* Nokolino V3.0 18.05.2020 - Nikolai Radke
  *  
- *  Sketch for Mini-Noko-Monster - NOT WORKING WITH V2.X HARDWARE!
+ *  Sketch for Mini-Noko-Monster with JQ6500 module
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 4.076 (IDE 1.8.11 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 4.076 (IDE 1.8.12 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -31,16 +31,14 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-//#define Breadboard                // Breadboard or PCB?
 
-// Own voice set?
-//#define Set_own                   // Up to 64k files - if they fit into the flash...
-
-#ifdef Set_own
+//#define Set_own                   // Own voice set?
+#ifdef Set_own                      // Up to 64k files - if they fit into the flash...
   #define Button_event_own 0        // Last button event number (XX.mp3)
   #define Time_event_own   0        // Last time event number
 #endif
 
+//#define Breadboard                // Breadboard or PCB?
 #ifdef Breadboard
   #define Offset       0.3          // Battery measuring error
   #define maxInput     50           // Max. value from busy line 
@@ -50,10 +48,10 @@
 #endif
 
 // Optional - comment out with // to disable o remove // to enable
+#define StartupBeep                 // Will say "beep" when turned on
 #define BatteryWarning              // Gives a warning when battery is low
 //#define LightSensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
-#define StartupBeep                 // Will say "beep" when turned on
 
 //---------------------------------------------------------------------------------
 
