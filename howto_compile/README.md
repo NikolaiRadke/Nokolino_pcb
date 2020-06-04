@@ -52,4 +52,4 @@ Now you can flash your ATtiny with any sketch you want! But this time, we focus 
 2. Upload the sketch.  
 3. DONE.  
 
-Now you can remove the microcontroller. You should keep the wiring alive to easly make some changes in the firmware.  
+Now you can remove the microcontroller. You should keep the wireing alive to easly make some changes in the firmware.  
