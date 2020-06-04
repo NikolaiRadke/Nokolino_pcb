@@ -10,7 +10,7 @@ These people helped me bringing life to Nokolino:
 - **Helga Hansen** - from the Make Magazin for promoting Nokolino.  
 - **Thomas Stolt** - PCB design and bugfixes.  
 - **Jan Fanslau** - PCB rework and beer. Look at his [Projekts](https://janfanslau.com).  
-- **Elisabeth Seidl** - graphics.
+- **Elisabeth Seidl** - Media design.  
   
 Active supporters:  
 
