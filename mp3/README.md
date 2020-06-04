@@ -12,7 +12,7 @@ Linux and Mac can copy the files by simply marking them all and draging them int
   
 **Windows** users can use the (chinese) interface. See this [instructions](http://sparks.gogo.co.nz/jq6500/index.html), written by James Sleeman. if you want an English interface or is the interface missing, look at my [JQ6500 rescue tool](https://github.com/NikolaiRadke/JQ6500-rescue-tool).  
   
-**Linux** and **Mac** users should try the [uploading tool](https://github.com/NikolaiRadke/Nokolino/tree/master/linux_uploader), written by Max Reinhard.  
+**Linux** and **Mac** users should try the [uploading tool](https://github.com/NikolaiRadke/Nokolino_pcb/tree/master/linux_uploader), written by Max Reinhard.  
 
 ## Voice set structure  
   
