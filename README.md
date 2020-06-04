@@ -22,7 +22,7 @@ Right now, the building wiki, the voice set and the manual are in German. I'll t
   
 ### Prerequisites
   
-Nokolino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `NOKOlino_2/src/NOKOlino/` into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/howto_compile) for further instructions. 
+Nokolino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `Nokolino/src/V3.0/Nokolino/` for the **JQ6500** module or `Nokolino/src/V3.1/Nokolino/` for the **JQ8400** module into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/Nokolino_pcb/tree/master/howto_compile) for further instructions. 
   
 ### Content
 
