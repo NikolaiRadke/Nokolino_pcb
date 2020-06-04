@@ -14,7 +14,7 @@ There are **three** ways to get your own set of boards:
  
 2. There will be a complete kit available in the heise store. Look at the [kit repository](https://github.com/NikolaiRadke/Nokolino) and stay tuned!  
   
-3. Contact me. I have some boards and few kits left. But please: First try to order them by yourself as written in option 1.  
+3. Contact me. I have always some boards and sometimes a few kits left. But please: First try to order them by yourself as written in option 1.  
 
 
 
