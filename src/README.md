@@ -1,3 +1,3 @@
-# NOKOlino Software
+# Nokolino Software
 
-You can find the sketch **NOKOlino.ino** in folder /src/NOKOlino. The other folder /src/Nokolino_V30 and /src/Nokolino_V31 are for upcoming versions and are **NOT** working with your PCB!  
+In this folders you can find the **Nokolino.ino** sketches. Choose **V3.0** for the **JQ6500** module or **V3.1** for the JQ8400 module.  
