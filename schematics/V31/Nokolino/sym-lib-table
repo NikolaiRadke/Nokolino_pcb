@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name Nokolino)(type Legacy)(uri ${KIPRJMOD}/Nokolino.lib)(options "")(descr "Nokolino V3.0 Bauteile"))
-)

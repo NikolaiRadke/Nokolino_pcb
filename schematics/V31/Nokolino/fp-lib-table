@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name Nokolino)(type KiCad)(uri ${KIPRJMOD}/Nokolino.pretty)(options "")(descr ""))
-)
