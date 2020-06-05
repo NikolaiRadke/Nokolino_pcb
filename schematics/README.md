@@ -1,6 +1,6 @@
 # Schematics
 
-* **NOKOlino_V31.pdf**  
+* **Nokolino_V31.pdf**  
 * **Nokolino_V30.pdf**  
 Nokolino's main schematic.  
   
