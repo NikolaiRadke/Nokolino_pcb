@@ -1,6 +1,6 @@
 # Voice set for Nokolino - German
 
-Here you find four voice sets: Nokolino for the male and Nokolina for the female version, each with 2MB for **16 MBit JQ6500** modules and 4MB for the **32 MBit JQ6500 and JQ8400** modules.  
+Here you find four voice sets: Nokolino for the male and Nokolina for the female version, each with **2MB** for **16 MBit JQ6500** modules and **4MB** for the **32 MBit JQ6500 and JQ8400** modules.  
 
 ## JQ8400  
   
