@@ -31,7 +31,6 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-
 //#define Set_own                   // Own voice set?
 #ifdef Set_own                      // Up to 64k files - if they fit into the flash...
   #define Button_event_own 0        // Last button event number (XX.mp3)
