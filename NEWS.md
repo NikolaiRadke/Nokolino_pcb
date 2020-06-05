@@ -4,7 +4,7 @@
   
 * **04.06.2020** Updated to firmware **3.0-180520** and **3.1-180520**. Only cleanup changes made.    
 * **03.06.2020** Started reworking this repository and the wiki.  
-* **02.06.2020** The Nokolino kit and the new repository is ready!    
+* **02.06.2020** The Nokolino kit and the new repository are ready!    
 * **26.03.2020** Finally, i found the last missing part for the new Nokolino kit: A solderless USB plug! The wiki will be updated very soon.   
 * **22.03.2020** The V3.1 boards for the JQ8400 modules are working.  
 * **09.03.2020** New PCBs arrived! The top board fits perfectly to the new designed M2 screw button caps. The V3.1 with alternative JQ8400 module will be tested soon.  
