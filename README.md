@@ -51,20 +51,20 @@ Nokolino/
 |           164 files for recommended (32 MBit) modules.
 |
 ├── schematics/
-|   The circuit diagrams, cab 3D-model, sewing pattern and shopping list.  
+|   The circuit diagrams, 3D cab model and sewing pattern.  
 |   └── gerber/
 |       The gerber files for the PCB to build by your own.
-|       ├── V3.0/
+|       ├── V30/
 |       |   The gerbers for the JQ6500 module.
-|       └── V3.1/
+|       └── V31/
 |           The gerbers for the JQ8400 module.
 |
 └── src/
     ATtiny sketches
-    ├── V3.0/
+    ├── V30/
     |   └── Nokolino/
     |       The sketch for the JQ6500 module.
-    └── V3.1/
+    └── V31/
         └── Nokolino/
             The sketch for the JQ8400 module.
 ```
