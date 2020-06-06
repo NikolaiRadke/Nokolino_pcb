@@ -2,6 +2,7 @@
 
 # 2020  
   
+* **06.06.2020** New release **V3.0-180520**.  
 * **04.06.2020** Updated to firmware **3.0-180520** and **3.1-180520**. Only cleanup changes made.    
 * **03.06.2020** Started reworking this repository and the wiki.  
 * **02.06.2020** The Nokolino kit and the new repository are ready!    
