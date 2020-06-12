@@ -2,7 +2,7 @@
 
 # 2020  
 
-* **12.06.2020** Linked [PCB.md](https://github.com/NikolaiRadke/Nokolino_pcb/blob/master/PCB.md) to [Aisler](https://aisler.net/Monstermaker) for easy pcb ordering.  
+* **12.06.2020** Linked [PCB.md](https://github.com/NikolaiRadke/Nokolino_pcb/blob/master/PCB.md) to my [Aisler](https://aisler.net/Monstermaker) repository for easy pcb ordering.  
 * **10.06.2020** A kit is available! Look [here](https://maker-faire.de/workshops/bauset-workshops/).  
 * **06.06.2020** New release **V3.0-180520**.  
 * **04.06.2020** Updated to firmware **3.0-180520** and **3.1-180520**. Only cleanup changes made.    
