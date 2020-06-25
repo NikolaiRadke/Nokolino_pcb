@@ -154,7 +154,7 @@ while(1) {
     if (!(PINB & (1<<PB0))) {          // If button is pressed then
       if (dark) {                      // if fototransistor is available
         #ifdef SleepComplain           // and complain feature enabled
-          if (files>1) {               // and not in music box mode
+          if (files==Time_event+1) {   // and not in music box mode
             JQ8400_play(Time_event);   // complain when button pressed
           }
         #endif
