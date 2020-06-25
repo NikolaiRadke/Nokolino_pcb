@@ -1,9 +1,9 @@
-/* Nokolino V3.1 18.05.2020 - Nikolai Radke
+/* Nokolino V3.1 25.06.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster with new JQ8400 module
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 3.912 (IDE 1.8.12 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 3.972 (IDE 1.8.12 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -71,7 +71,8 @@
 #define BODSE 2                        // BOD sleep enable bit in MCUCR
 
 // Variables
-uint16_t address,seed,files;
+uint16_t seed,files;
+uint16_t address=1;
 volatile boolean f_wdt = 1;            // Volatile -> it is an interrupt routine
 boolean  low=false;
 boolean  dark=false;
@@ -115,7 +116,7 @@ init(); {
   files=16*files_byte[3]+files_byte[4];// Convert 2 bytes into uint16_t
 
   // Nokolino mode | else Music box mode
-  if (files>1) {
+  if (files==Time_event+1) {
     // Randomize number generator
     address=eeprom_read_word(0);       // Read EEPROM address
     if ((address<2) || (address>(EEPROM.length()-3))) {           
@@ -158,10 +159,13 @@ while(1) {
           }
         #endif
       }
-      else if (files>1) JQ8400_play(random(0,Button_event+1)); // Button event
-      else JQ8400_play(1);             // or single music box file
+      else if (files==Time_event+1) JQ8400_play(random(0,Button_event+1)); // Button event
+      else {
+            JQ8400_play(address);       // or single music box files 
+            (address==files)? address=1:address++;
+      }
     }
-    else if ((!dark) && (files>1) && (random(0,Time*60*8)==1)) // Time event
+    else if ((!dark) && (files==Time_event+1) && (random(0,Time*60*8)==1)) // Time event
       JQ8400_play(random(Button_event+1,Time_event+1)); 
   }
   attiny_sleep();                      // Safe battery
