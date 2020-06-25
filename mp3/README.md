@@ -41,6 +41,6 @@ You want to use your own files? No problem. Look into the sketch **Nokolino.ino*
 ``` #define Button_event  0 ```  for the last voice file when the button is pressed and  
 ``` #define Time_event   0``` for the last voice file for the time based events.  
 The *beep* for the battery warning should be the last file.  
-In **V3.0** set the definition **Set_own**. The **JQ6500** allows up to **65536** files, if the fit into the flash memory. The **JQ8400** is due programming issues limited to **255** files. That seems to be still enough.  
+In **V3.0** set the definition **Set_own**. The **JQ6500** allows up to **65536** files, if the fit into the flash memory. The **JQ8400** is due programing issues limited to **255** files. That seems to be still enough.  
   
 Keep in your mind, that the **JQ6500** memory is limited to **4Mbyte - 256kb** or **2Mbyte - 256kb**! The **JQ8400** provides full **4Mbyte**. 
