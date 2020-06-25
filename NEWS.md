@@ -1,7 +1,9 @@
 # Newsblog
 
 # 2020  
-
+  
+* **25.06.2020** New Firmware **3.1-250620**: Music box mode now plays more than one file.   
+* **23.06.2020** The kit is now availabe at [heise shop!](https://shop.heise.de/katalog/nokolino-bauset) Cheers!  
 * **12.06.2020** Linked [PCB.md](https://github.com/NikolaiRadke/Nokolino_pcb/blob/master/PCB.md) to my [Aisler](https://aisler.net/Monstermaker) repository for easy pcb ordering.  
 * **10.06.2020** A kit is available! Look [here](https://maker-faire.de/workshops/bauset-workshops/).  
 * **06.06.2020** New release **V3.0-180520**.  
