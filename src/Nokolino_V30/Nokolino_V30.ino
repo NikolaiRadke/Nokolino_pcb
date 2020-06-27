@@ -74,7 +74,8 @@
 #define BODSE 2                        // BOD sleep enable bit in MCUCR
 
 // Variables
-uint16_t address,seed,files;
+uint16_t seed,files;
+uint16_t address=1;
 uint16_t Button_event=30;
 uint16_t Time_event=79;
 volatile boolean f_wdt = 1;            // Volatile -> it is an interrupt routine
@@ -124,7 +125,7 @@ init(); {
   newdelay(1250);                      // JQ6500 needs time to settle
   
   // Nokolino mode | else Music box mode
-  if (files>1) {
+  if (files>79) {
     // Randomize number generator
     address=eeprom_read_word(0);       // Read EEPROM address
     if ((address<2) || (address>(EEPROM.length()-3))) {           
@@ -174,8 +175,11 @@ while(1) {
           }
         #endif
       }
-      else if (files>1) JQ6500_play(random(0,Button_event+1)); // Button event
-      else JQ6500_play(1);             // or single music box file
+      else if (files>80) JQ6500_play(random(0,Button_event+1)); // Button event
+      else {
+            JQ6500_play(address);       // or single music box file
+            (address==files)? address=1:address++;
+      }
     }
     else if ((!dark) && (files>1) && (random(0,Time*60*8)==1)) // Time event
       JQ6500_play(random(Button_event+1,Time_event+1)); 
