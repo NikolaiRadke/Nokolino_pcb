@@ -61,12 +61,12 @@ Nokolino/
 |
 └── src/
     ATtiny sketches
-    ├── V30/
-    |   └── Nokolino/
-    |       The sketch for the JQ6500 module.
-    └── V31/
-        └── Nokolino/
-            The sketch for the JQ8400 module.
+    ├── Nokolino_V21/
+    |   Old software for old 2018 kits.
+    ├── Nokolino_V30/
+    |   The sketch for the JQ6500 module.
+    └── Nokolino_V31/
+        The sketch for the JQ8400 module.
 ```
 ### Let's get started!
 
