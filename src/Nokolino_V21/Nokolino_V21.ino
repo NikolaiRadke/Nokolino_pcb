@@ -35,8 +35,8 @@
 //#define Breadboard                // Breadboard or PCB?
 
 // Voice set selection
-//#define Set_16MBit
-#define Set_32MBit
+#define Set_16MBit                  // The Maker Faire kit module has only 16MBit
+//#define Set_32MBit
 //#define Set_own
 
 #ifdef Set_16MBit
@@ -54,7 +54,7 @@
 
 #ifdef Breadboard
   #define Offset       0.3          // Battery measuring error
-  #define maxInput     50           // Max. value from busy line. 
+  #define maxInput     50           // Max. value from busy line 
 #else
   #define Offset       0.1
   #define maxInput     0
