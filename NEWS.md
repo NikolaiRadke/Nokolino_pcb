@@ -2,6 +2,7 @@
 
 # 2020  
   
+* **28.08.2020** I am working on a **3.2**-Board with JST plugs an cable for easier assembly.  
 * **10.07.2020** Tested new IDE 1.8.13. Works good.  
 * **27.06.2020** Added software support for old V2.1 kits.  
 * **25.06.2020** New firmware **3.1-250620**: Music box mode now plays more than one file. 3.0 will follow soon.     
