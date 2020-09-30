@@ -6,7 +6,7 @@ Nokolino_pcb is made of **two** boards. Both of them are 6x5 cm, with two layers
 the charging module, the ATtiny and the MP3 module, the **top board** for the speaker. The battery is on the 
 downside of the main board.  
 
-There are two versions: **V3.0** for the **JQ6500-16p** MP3 module, and **V3.1** for the **JQ8400-10p** MP3 module. I recommend using the newer JQ8400.
+There are three versions: **V3.0** for the **JQ6500-16p** MP3 module, **V3.1** for the **JQ8400-10p** MP3 module and **V3.2** for the **DFPlayer**. I recommend using the newer JQ8400, if you just need a monster. Do you want Nokolino to play longer files like musc then choose the DFPlayer.  
   
 There are **three** ways to get your own set of boards:
 
