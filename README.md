@@ -20,7 +20,7 @@ Right now, the building wiki, the voice set and the manual are in German. I'll t
   
 ### Prerequisites
   
-Nokolino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `Nokolino/src/Nokolino_V30/` for the **JQ6500** module, `Nokolino/src//Nokolino_V31/` for the **JQ8400** module or `Nokolino/src/Nokolino_V21/` for **older 2018 kits** into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/Nokolino_pcb/tree/master/howto_compile) for further instructions. 
+Nokolino needs Arduino IDE 1.6.6 or newer (https://www.arduino.cc/en/Main/Software). Copy the folder `Nokolino/src/Nokolino_V30/` for the **JQ6500** module, `Nokolino/src//Nokolino_V31/` for the **JQ8400** module, `Nokolino/src/Nokolino_V32/`for the **DFPlayer** module or `Nokolino/src/Nokolino_V21/` for **older 2018 kits** into your sketch folder and install ATtiny support. See [how to compile](https://github.com/NikolaiRadke/Nokolino_pcb/tree/master/howto_compile) for further instructions. 
   
 ### Content
 
@@ -56,8 +56,10 @@ Nokolino/
 |       The gerber files for the PCB to build by your own.
 |       ├── V30/
 |       |   The gerbers for the JQ6500 module.
-|       └── V31/
-|           The gerbers for the JQ8400 module.
+|       ├── V31/
+|       |   The gerbers for the JQ8400 module.
+|       └── V32/
+|           The gerbers for the DFPlayer module.
 |
 └── src/
     ATtiny sketches
@@ -65,8 +67,10 @@ Nokolino/
     |   Old software for old 2018 kits.
     ├── Nokolino_V30/
     |   The sketch for the JQ6500 module.
-    └── Nokolino_V31/
-        The sketch for the JQ8400 module.
+    ├── Nokolino_V31/
+    |   The sketch for the JQ8400 module.
+    └── Nokolino_V32/
+        The sketch for the DFPlayer module.
 ```
 ### Let's get started!
 
