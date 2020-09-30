@@ -38,7 +38,7 @@ Now you can flash your ATtiny with any sketch you want! But this time, we focus 
 
 ### Configuring Nokolino.ino
 
-For **V3.1** and **V3.0** versions. If you need **V2.1** for an old kit, everything is preset.  
+For **V3.2**, **V3.1** and **V3.0** versions. If you need **V2.1** for an old kit, everything is preset.  
 
 1. Set the avarage talking interval in line 31 (10 for 10 minutes is preset).  
 2. Set the volume in line 32. 25 is recommended for Nokolino, 22 for Nokolina.  
