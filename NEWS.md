@@ -2,9 +2,12 @@
 
 # 2020  
   
+* **23.09.2020** Before releasing the reworked boards, **V3.2** will be released with **DFPlayer** MP3 module for microSD cards. Stay tuned!  
+* **28.08.2020** All Boards are getting a slight rework with JST plugs an cables for easier assembly.
+* **10.07.2020** Tested new IDE 1.8.13. Works good.  
 * **27.06.2020** Added software support for old V2.1 kits.  
 * **25.06.2020** New firmware **3.1-250620**: Music box mode now plays more than one file. 3.0 will follow soon.     
-* **23.06.2020** The kit is now availabe at [heise shop!](https://shop.heise.de/katalog/nokolino-bauset) Cheers!  
+* **23.06.2020** The kit and the workshop ticket are now availabe at [heise shop!](https://maker-faire.de/workshops/bauset-workshops/) Cheers!  
 * **12.06.2020** Linked [PCB.md](https://github.com/NikolaiRadke/Nokolino_pcb/blob/master/PCB.md) to my [Aisler](https://aisler.net/Monstermaker) repository for easy pcb ordering.  
 * **10.06.2020** A kit is available! Look [here](https://maker-faire.de/workshops/bauset-workshops/).  
 * **06.06.2020** New release **V3.0-180520**.  

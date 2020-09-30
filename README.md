@@ -36,7 +36,7 @@ Nokolino/
 |   Nokolino manuals in PDF format.
 |
 ├── mp3/
-|   Voice sets for the 32MBit- & 16MBit-JQ6500 in German. English needed? Contribute!
+|   Voice sets for 32MBit- & 16MBit modules in German. English needed? Contribute!
 |   ├── Nokolino/
 |   |   Male voice sets, spoken by Carsten Caniglia.
 |   |   ├── 2MB/
