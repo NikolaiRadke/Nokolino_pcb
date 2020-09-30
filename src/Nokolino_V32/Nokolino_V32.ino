@@ -1,18 +1,18 @@
-/* Nokolino V3.01 25.06.2020 - Nikolai Radke - untested!
+/* Nokolino V3.2 30.09.2020 - Nikolai Radke
  *  
- *  Sketch for Mini-Noko-Monster with JQ6500 module
+ *  Sketch for Mini-Noko-Monster with new DFPlayer module
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 4.080 (IDE 1.8.12 | AVR 1.8.3 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 3.952 (IDE 1.8.13 | AVR 1.8.3 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
  *  2: A3  | PB3  Optional SFH300  
- *  3: A2  | PB4  Busy JQ6500 - 8
+ *  3: A2  | PB4  Busy DFPlayer  - 16
  *  4: GND |      GND
- *  5: D0  | PB0  Button      - GND
- *  6: D1  | PB1  TX JQ6500   - 10   1
- *  7: D2  | PB2  RX JQ6500   - 9       
+ *  5: D0  | PB0  Button         - GND
+ *  6: D1  | PB1  RX DFPLayer    - 3
+ *  7: D2  | PB2  TX 1k DFPlayer - 2       
  *  8: VCC        VCC
  *  
  *  Sleepmodes:
@@ -31,16 +31,16 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-#define Button_event_own 30         // Last button event number (XX.mp3)
-#define Time_event_own   79         // Last time event number -> Very last file is "beep"
+#define Button_event 40             // Last button event number (XX.mp3)
+#define Time_event   163            // Last time event number -> Very last file is "beep"
 
 //#define Breadboard                // Breadboard or PCB?
 #ifdef Breadboard
-  #define Offset       0.3          // Battery measuring error
-  #define maxInput     50           // Max. value from busy line 
+  #define Offset     0.3            // Battery measuring error
+  #define maxInput   500            // Max. value from busy line 
 #else
-  #define Offset       0.1
-  #define maxInput     0
+  #define Offset     0.1
+  #define maxInput   600
 #endif
 
 // Optional - comment out with // to disable o remove // to enable
@@ -52,38 +52,40 @@
 //---------------------------------------------------------------------------------
 
 // Optional battery warning
-#define minCurrent   3.60 +Offset   // Low power warning current + measuring error
-#define battLow      3.50 +Offset   // Minimal voltage before JQ6500 fails
+#define minCurrent   3.40 +Offset   // Low power warning current + measuring error
+#define battLow      3.30 +Offset   // Minimal voltage before DFPlayer fails
 
 // Hardware pins
-#define TX      1
-#define RX      2
+#define TX      2
+#define RX      1
 #define Busy    2
+
+// DFPlayer commands
+#define SetVolume   0x06 
+#define Play        0x0F 
+#define Count       0x4E
 
 // ADC and BOD
 #ifndef cbi
-  #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
+  #define cbi(sfr,bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #endif
 #ifndef sbi
-  #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+  #define sbi(sfr,bit) (_SFR_BYTE(sfr) |= _BV(bit))
 #endif
 #define BODS 7                         // BOD sleep bit in MCUCR
 #define BODSE 2                        // BOD sleep enable bit in MCUCR
 
 // Variables
-uint16_t seed;
+uint16_t seed,files;
 uint16_t address=1;
-uint8_t Button_event=Button_event_own;
-uint8_t Time_event=Time_event_own;
 volatile boolean f_wdt = 1;            // Volatile -> it is an interrupt routine
 boolean  low=false;
 boolean  dark=false;
-boolean  nokolino;
+boolean  musicbox=false;
 char     count_files;
-uint8_t  files;
-uint8_t  files_byte[4];
+uint8_t  files_byte[10];
 
-SoftwareSerial mp3(TX,RX);             // TX to D2, RX to D1
+SoftwareSerial mp3(TX,RX);            // TX to D2, RX to D1
 
 int main(void) {
 
@@ -97,42 +99,29 @@ init(); {
   // Power saving
   MCUCR |= _BV(BODS) | _BV(BODSE);     // Disable brown out detection - default?
   ACSR |= _BV(ACD);                    // Disable analog comparator - default?
+  setup_watchdog(3);                   // Set sleep time to 128ms  
 
   // Port Setup
   DDRB &= ~(1<<PB0);                   // D0 INPUT
   PORTB |= (1<<PB0);                   // D0 HIGH 
 
-  // Loop if there is a USB data connection for upload
-  setup_watchdog(3);                   // Set sleep time to 128ms  
-  if (!(PINB & (1<<PB0))) {            // If button is pressed during startup
-    while(1) attiny_sleep();           // sleep forever to upload files to JQ6500
-  }
-
-  // Start JQ6500
-  mp3.begin(9600);
-  mp3.write("\x7E\x02\x0C\xEF");       // Reset JQ6500
+  // Start DFPlayer
+  newdelay(1000);
+  mp3.begin(9600);                     // Init Player
   newdelay(500);
-  while (mp3.available()) mp3.read();  // Clear serial buffer
-  mp3.write("\x7E\x02\x49\xEF");       // Count files on module
-  newdelay(10);
-  for (seed=0;seed<4;seed++) {         // Read 4 HEX chars from module
-    count_files=mp3.read();            // and convert the ASCII chars into uint16_t
-    if (count_files>=97) files_byte[seed]=(uint8_t) count_files-87;
-    else files_byte[seed]=(uint8_t) count_files-48;
+  command(SetVolume,0,Volume,245-Volume); // Send volume command
+
+  // Count files in folder 02 for music box mode
+  command(Count,0,2,171);
+  for (seed=0;seed<10;seed++) {         // Read 10 HEX chars from module
+    files_byte[seed]=(uint8_t) mp3.read();// and convert the chars into uint8_t
   }
-  files=16*files_byte[2]+files_byte[3];
-  newdelay(1250);                      // JQ6500 needs time to settle
-  
-  // Select voice set
-  if (files==80) nokolino=true;
-  if (files==164) {                    // Preset is 16MBit
-    Button_event=40;                   // Set to 32MBit if more files
-    Time_event=163;
-    nokolino=true;
-   }
-  
-  // Nokolino mode | else Music box mode
-  if (nokolino) {
+  files=files_byte[6];   
+
+  // Set play mode | Button pressed = music box mode
+  if (!(PINB & (1<<PB0))) musicbox=true;  
+    
+  if (!musicbox) {
     // Randomize number generator
     address=eeprom_read_word(0);       // Read EEPROM address
     if ((address<2) || (address>(EEPROM.length()-3))) {           
@@ -149,15 +138,14 @@ init(); {
     }
     randomSeed(seed);                  // Randomize
     seed++;                            // New seed
-    eeprom_write_word(address,seed);   // Save new seed for next startup
- 
-    // Optional startup beep
-    #ifdef StartupBeep
-      if (nokolino) JQ6500_play(files);// Nokolino says "Beep"
-    #endif
+    eeprom_write_word(address,seed);   // Save new seed for next startup     
   }
-  
-  mp3.write("\x7E\x02\x0A\xEF");       // Sleep, JQ6500!
+
+  // Optional startup beep
+  #ifdef StartupBeep    
+    play(Time_event+1,1);              // Nokolino says "Beep"       
+    newdelay(1000);  
+  #endif 
 }
 
 // Main loop
@@ -167,19 +155,19 @@ while(1) {
     if (!(PINB & (1<<PB0))) {          // If button is pressed then
       if (dark) {                      // if fototransistor is available
         #ifdef SleepComplain           // and complain feature enabled
-          if (nokolino) {              // and not in music box mode
-            JQ6500_play(Time_event);   // complain when button pressed
+          if (!musicbox) {             // and not in music box mode
+            play(Time_event,1);        // complain when button pressed
           }
         #endif
       }
-      else if (nokolino) JQ6500_play(random(0,Button_event+1)); // Button event
+      else if (!musicbox) play(random(0,Button_event+1),1); // Button event
       else {
-            JQ6500_play(address);      // or single music box file
-            (address==files)? address=1:address++;
+        play(address,2);                 // or single music box files 
+        (address==files)?address=1:address++;
       }
     }
-    else if ((!dark) && (nokolino) && (random(0,Time*60*8)==1)) // Time event
-      JQ6500_play(random(Button_event+1,Time_event+1)); 
+    else if ((!dark) && (!musicbox) && (random(0,Time*60*8)==1)) // Time event
+      play(random(Button_event+1,Time_event+1),1); 
   }
   attiny_sleep();                      // Safe battery
   
@@ -187,10 +175,10 @@ while(1) {
   #ifdef BatteryWarning
     if (counter==0) {
      current=MeasureVCC();
-     vref=1024*1.1f/(double)current;
+     vref=1024*1.1f/(double)current;   // Calculate battery current
      if (vref<=minCurrent) {           // Current below minimum
-       if (vref<=battLow) low=true;    // Power too low for JQ6500
-       else JQ6500_play(Time_event+1); // Nokolino says "Beep"
+       if (vref<=battLow) low=true;    // Power too low
+       else play(Time_event+1,1);      // Nokolino says "Beep"
      }
      else low=false;
      counter=400;                      // Every minute, 400x128ms+some runtime ms for 60s
@@ -205,18 +193,22 @@ while(1) {
   #endif
 }}
 
-void JQ6500_play(uint8_t f) {          // Plays MP3 number f
-  mp3.write("\x7E\x03\x06");
-  mp3.write(Volume);                   // Set volume
-  mp3.write("\xEF");                   // JQ6500 looses volume settings after sleep... 
-  newdelay(200);
-  mp3.write("\x7E\x04\x03\x01");       // Play file number f
-  mp3.write(f);
+void play(uint8_t file, uint8_t folder) {
+  command(Play,folder,file,236-file-folder);
+  while (analogRead(A2)<maxInput) attiny_sleep(); // Check busy
+  //command(0x0A,0,0,241);            // Send DFPlayer to sleep | Useless
+}
+
+void command(uint8_t CMD,uint8_t CMD2,uint8_t VAL,uint8_t CHK) {
+  mp3.write("\x7E\xFF\x06");
+  mp3.write(CMD);                     // Write command
+  mp3.write((uint8_t) 0x00);
+  mp3.write(CMD2);                    // Write second command
+  mp3.write(VAL);                     // Write value
+  mp3.write("\xFE");
+  mp3.write(CHK);                     // Write checksum
   mp3.write("\xEF");
-  newdelay(200);
-  while (analogRead(A2)>maxInput) attiny_sleep(); // Check busy
-  mp3.write("\x7E\x02\x0A\xEF");       // Go back to sleep, JQ6500!
-  newdelay(200);
+  newdelay(100);
 }
 
 void attiny_sleep() {                  // Sleep to save power  
@@ -226,8 +218,7 @@ void attiny_sleep() {                  // Sleep to save power
   sbi(ADCSRA,ADEN);                    // Switch ADC on
 }
 
-void newdelay(uint16_t z)              // New delay function to save flash
-{
+void newdelay(uint16_t z) {            // New delay function to save flash
   uint32_t zmillis=millis();
   while (millis()-zmillis<z);
 }
@@ -235,7 +226,7 @@ void newdelay(uint16_t z)              // New delay function to save flash
 void setup_watchdog(uint8_t mode) {    // Setup wake time
   uint8_t bb;
   bb=mode & 7;
-  if (mode > 7) bb|= (1<<5);
+  if (mode>7) bb|= (1<<5);
   bb|= (1<<WDCE);
   MCUSR &= ~(1<<WDRF);
   WDTCR |= (1<<WDCE) | (1<<WDE);
@@ -244,7 +235,7 @@ void setup_watchdog(uint8_t mode) {    // Setup wake time
 }
 
 uint16_t MeasureVCC(void) {           // Thank you, Tim!
-  PRR    &=~_BV(PRADC); 
+  PRR     &=~_BV(PRADC); 
   ADCSRA  =_BV(ADEN)|_BV(ADPS2)|_BV(ADPS1)|_BV(ADPS0); 
   ADMUX   =_BV(REFS2) | 0x0c; 
   newdelay(1); 
