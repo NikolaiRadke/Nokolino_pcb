@@ -2,7 +2,7 @@
 
 # 2020  
   
-* **23.09.2020** Before releasing the reworked boards, **V3.2** will be released with **DFPlayer** MP3 module for microSD cards. Stay tuned!  
+* **30.09.2020** Good news: A new Version **V3.2** is the with **DFPlayer** MP3 module for microSD cards is available! Nokolino can be used as a speech set monster an, by pressing the button on startup, as a music box for tons of files, uploadable via USB.  
 * **28.08.2020** All Boards are getting a slight rework with JST plugs an cables for easier assembly.
 * **10.07.2020** Tested new IDE 1.8.13. Works good.  
 * **27.06.2020** Added software support for old V2.1 kits.  
