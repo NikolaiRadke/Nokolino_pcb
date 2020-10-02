@@ -31,7 +31,7 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-#define Button_event 40             // Last button event number (XX.mp3)
+#define Button_event 40             // Last button event number (XXX.mp3)
 #define Time_event   163            // Last time event number -> Very last file is "beep"
 
 //#define Breadboard                // Breadboard or PCB?
@@ -110,9 +110,8 @@ init(); {
   mp3.write((uint8_t) 0x00);
   mp3.write(0xB6);
   newdelay(100);
-  for (seed=0;seed<6;seed++) {         // Read 6 HEX chars from module
+  for (seed=0;seed<6;seed++)           // Read 6 HEX chars from module
     files_byte[seed]=(uint8_t) mp3.read();// and convert the chars into uint8_t
-  }
   files=16*files_byte[3]+files_byte[4];// Convert 2 bytes into uint16_t
 
   // Nokolino mode | else Music box mode
@@ -154,15 +153,15 @@ while(1) {
     if (!(PINB & (1<<PB0))) {          // If button is pressed then
       if (dark) {                      // if fototransistor is available
         #ifdef SleepComplain           // and complain feature enabled
-          if (files==Time_event+1) {   // and not in music box mode
+          if (files==Time_event+1)     // and not in music box mode
             JQ8400_play(Time_event);   // complain when button pressed
-          }
         #endif
       }
-      else if (files==Time_event+1) JQ8400_play(random(0,Button_event+1)); // Button event
+      else if (files==Time_event+1) 
+        JQ8400_play(random(0,Button_event+1)); // Button event
       else {
-            JQ8400_play(address);       // or single music box files 
-            (address==files)? address=1:address++;
+        JQ8400_play(address);         // or single music box files 
+        (address==files)? address=1:address++;
       }
     }
     else if ((!dark) && (files==Time_event+1) && (random(0,Time*60*8)==1)) // Time event
@@ -173,14 +172,14 @@ while(1) {
   // Optional: Check current
   #ifdef BatteryWarning
     if (counter==0) {
-     current=MeasureVCC();
-     vref=1024*1.1f/(double)current;
-     if (vref<=minCurrent) {           // Current below minimum
-       if (vref<=battLow) low=true;    // Power too low for J8400
-       else JQ8400_play(Time_event+1); // Nokolino says "Beep"
-     }
-     else low=false;
-     counter=400;                      // Every minute, 400x128ms+some runtime ms for 60s
+      current=MeasureVCC();
+      vref=1024*1.1f/(double)current;
+      if (vref<=minCurrent) {          // Current below minimum
+        if (vref<=battLow) low=true;   // Power too low for J8400
+        else JQ8400_play(Time_event+1);// Nokolino says "Beep"
+      }
+      else low=false;
+      counter=400;                      // Every minute, 400x128ms+some runtime ms for 60s
     }
     counter--;
   #endif
@@ -198,7 +197,8 @@ void JQ8400_play(uint8_t f) {          // Plays MP3 file
   mp3.write(f);
   mp3.write((uint8_t) 179+f);          // Calculate und wirte checksum
   newdelay(100);
-  while (analogRead(A2)>maxInput) attiny_sleep(); // Check busy
+  while (analogRead(A2)>maxInput) 
+    attiny_sleep();                    // Check busy
   newdelay(100);
  }
 

@@ -1,9 +1,10 @@
 /* Nokolino V3.0 18.05.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster with JQ6500 module
- *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
+ *  For ATtiny85/45 - set to 8 Mhz and remember to flash your bootloader first
+ *  ATtiny45: Disable battery warning. The sketch won't fit into flash.
  *  
- *  Flash-Usage: 4.076 (IDE 1.8.12 | AVR 1.8.2 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 4.136 (IDE 1.8.12 | AVR 1.8.3 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -33,7 +34,7 @@
 
 //#define Set_own                   // Own voice set?
 #ifdef Set_own                      // Up to 64k files - if they fit into the flash...
-  #define Button_event_own 0        // Last button event number (XX.mp3)
+  #define Button_event_own 0        // Last button event number (XXX.mp3)
   #define Time_event_own   0        // Last time event number
 #endif
 
@@ -170,15 +171,15 @@ while(1) {
     if (!(PINB & (1<<PB0))) {          // If button is pressed then
       if (dark) {                      // if fototransistor is available
         #ifdef SleepComplain           // and complain feature enabled
-          if (files>1) {               // and not in music box mode
+          if (files>1)                 // and not in music box mode
             JQ6500_play(Time_event);   // complain when button pressed
-          }
         #endif
       }
-      else if (files>80) JQ6500_play(random(0,Button_event+1)); // Button event
+      else if (files>80) 
+        JQ6500_play(random(0,Button_event+1)); // Button event
       else {
-            JQ6500_play(address);       // or single music box file
-            (address==files)? address=1:address++;
+        JQ6500_play(address);       // or single music box file
+        (address==files)? address=1:address++;
       }
     }
     else if ((!dark) && (files>1) && (random(0,Time*60*8)==1)) // Time event
@@ -217,7 +218,8 @@ void JQ6500_play(uint8_t f) {          // Plays MP3 number f
   mp3.write(f);
   mp3.write("\xEF");
   newdelay(200);
-  while (analogRead(A2)>maxInput) attiny_sleep(); // Check busy
+  while (analogRead(A2)>maxInput) 
+    attiny_sleep();                    // Check busy
   mp3.write("\x7E\x02\x0A\xEF");       // Go back to sleep, JQ6500!
   newdelay(200);
 }

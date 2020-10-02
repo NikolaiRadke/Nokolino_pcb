@@ -3,7 +3,7 @@
  *  Sketch for Mini-Noko-Monster with new DFPlayer module
  *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
  *  
- *  Flash-Usage: 3.952 (IDE 1.8.13 | AVR 1.8.3 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 3.250 (IDE 1.8.13 | AVR 1.8.3 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -18,6 +18,8 @@
  *  Sleepmodes:
  *  0=16ms, 1=32ms, 2=64ms, 3=128ms, 4=250ms, 5=500ms
  *  6=1sec, 7=2sec, 8=4sec, 9=8sec
+ *  
+ *  Known bugs: Battery warning is not working good and should be disabled.
  */
 
 #include <avr/sleep.h>
@@ -31,7 +33,7 @@
 #define Volume       25             // Volume 0-30 - 25 is recommended 
 #define Darkness     4              // Optional: The lower the darker the light must be
 
-#define Button_event 40             // Last button event number (XX.mp3)
+#define Button_event 40             // Last button event number (XXX.mp3)
 #define Time_event   163            // Last time event number -> Very last file is "beep"
 
 //#define Breadboard                // Breadboard or PCB?
@@ -45,15 +47,15 @@
 
 // Optional - comment out with // to disable o remove // to enable
 #define StartupBeep                 // Will say "beep" when turned on
-#define BatteryWarning              // Gives a warning when battery is low
+//#define BatteryWarning            // Gives a warning when battery is low
 //#define LightSensor               // Will be quite in the dark
 //#define SleepComplain             // Will complain if button pressed while its dark
 
 //---------------------------------------------------------------------------------
 
 // Optional battery warning
-#define minCurrent   3.40 +Offset   // Low power warning current + measuring error
-#define battLow      3.30 +Offset   // Minimal voltage before DFPlayer fails
+#define minCurrent   3.30 +Offset   // Low power warning current + measuring error
+#define battLow      3.10 +Offset   // Minimal voltage before DFPlayer fails
 
 // Hardware pins
 #define TX      2
@@ -113,9 +115,8 @@ init(); {
 
   // Count files in folder 02 for music box mode
   command(Count,0,2,171);
-  for (seed=0;seed<10;seed++) {         // Read 10 HEX chars from module
+  for (seed=0;seed<10;seed++)          // Read 10 HEX chars from module
     files_byte[seed]=(uint8_t) mp3.read();// and convert the chars into uint8_t
-  }
   files=files_byte[6];   
 
   // Set play mode | Button pressed = music box mode
@@ -155,14 +156,14 @@ while(1) {
     if (!(PINB & (1<<PB0))) {          // If button is pressed then
       if (dark) {                      // if fototransistor is available
         #ifdef SleepComplain           // and complain feature enabled
-          if (!musicbox) {             // and not in music box mode
+          if (!musicbox)               // and not in music box mode
             play(Time_event,1);        // complain when button pressed
-          }
         #endif
       }
-      else if (!musicbox) play(random(0,Button_event+1),1); // Button event
+      else if (!musicbox) 
+        play(random(0,Button_event+1),1); // Button event
       else {
-        play(address,2);                 // or single music box files 
+        play(address,2);               // or single music box files 
         (address==files)?address=1:address++;
       }
     }
@@ -174,14 +175,14 @@ while(1) {
   // Optional: Check current
   #ifdef BatteryWarning
     if (counter==0) {
-     current=MeasureVCC();
-     vref=1024*1.1f/(double)current;   // Calculate battery current
-     if (vref<=minCurrent) {           // Current below minimum
-       if (vref<=battLow) low=true;    // Power too low
-       else play(Time_event+1,1);      // Nokolino says "Beep"
-     }
-     else low=false;
-     counter=400;                      // Every minute, 400x128ms+some runtime ms for 60s
+      current+=MeasureVCC();
+      vref=1024*1.1f/(double)current;  // Calculate battery current
+      if (vref<=minCurrent) {          // Current below minimum
+        if (vref<=battLow) low=true;   // Power too low
+        else play(Time_event+1,1);     // Nokolino says "Beep"
+      }
+      else low=false;
+      counter=400;                     // Every minute, 400x128ms+some runtime ms for 60s
     }
     counter--;
   #endif
@@ -193,9 +194,10 @@ while(1) {
   #endif
 }}
 
-void play(uint8_t file, uint8_t folder) {
+void play(uint8_t file, uint8_t folder) { // Plays M3 file in folder 01 or 02
   command(Play,folder,file,236-file-folder);
-  while (analogRead(A2)<maxInput) attiny_sleep(); // Check busy
+  while (analogRead(A2)<maxInput) 
+    attiny_sleep();                   // Check busy
   //command(0x0A,0,0,241);            // Send DFPlayer to sleep | Useless
 }
 
