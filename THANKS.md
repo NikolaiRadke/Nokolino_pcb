@@ -9,7 +9,7 @@ These people helped me bringing life to Nokolino:
 - **Norma Anthes** - the female voice of Nokolino or Nokolina. Look hat her [Homepage](http://norma-anthes.de).  
 - **Helga Hansen** - from the Make Magazin for promoting Nokolino.  
 - **Thomas Stolt** - PCB design and bugfixes.  
-- **Jan Fanslau** - PCB rework and beer. Look at his [Projekts](https://janfanslau.com).  
+- **Jan Fanslau** - PCB rework and beer. Look at his [Projects](https://janfanslau.com).  
 - **Elisabeth Seidl** - Media design.  
   
 Active supporters:  
