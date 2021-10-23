@@ -57,10 +57,10 @@ For **V3.2**, **V3.1** and **V3.0** versions. If you need **V2.1** for an old ki
 Now you can remove the microcontroller. You should keep the wireing alive to easly make some changes in the firmware.  
 
 ### Hints for Linux users
-With some Debain-based distributions like Ubuntu or Mint you might recieve an error while trying to upload your sketch to the Attiny like
-``` avrdude: ser_open(): can't open device "/dev/ttyUSB0": Permission denied. ```
-This issue can be solved bei adding your user to the dialout-group. Open a terminal and type
-``` sudo usermod -a -G dialout $USERNAME ```.
+With some Debain-based distributions like Ubuntu or Mint you might recieve an error while trying to upload your sketch to the Attiny like  
+``` avrdude: ser_open(): can't open device "/dev/ttyUSB0": Permission denied. ```  
+This issue can be solved bei adding your user to the dialout-group. Open a terminal and type  
+``` sudo usermod -a -G dialout $USERNAME ```.  
 Enter your password and restart. Now it should work.
 
 
