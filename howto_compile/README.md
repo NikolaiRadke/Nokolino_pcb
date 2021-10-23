@@ -62,6 +62,3 @@ With some Debain-based distributions like Ubuntu or Mint you might recieve an er
 This issue can be solved by adding your user to the dialout-group. Open a terminal and type  
 ``` sudo usermod -a -G dialout $USERNAME ```.  
 Enter your password and restart. Now it should work.
-
-
-
