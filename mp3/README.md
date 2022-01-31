@@ -4,7 +4,7 @@ Here you find four voice sets: Nokolino for the male and Nokolina for the female
 
 ## DFPlayer
   
-Plug in your DFPlayer module or Nokolino and put the voice set in folder 01 on your SD card. In 02 you can put your own mp3 files for the music box mode, named 001.mp3 to 999.mp3.   
+Plug in your DFPlayer module or Nokolino and put the voice set in folder **01** on your SD card. In folder **02** you can put your own mp3 files for the music box mode, named 001.mp3 to 999.mp3.   
 
 ## JQ8400  
   
