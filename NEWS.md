@@ -1,5 +1,9 @@
 # Newsblog
 
+# 2022
+* **30.01.2022** Started german wiki integration of the new V3.2 version. Hopefully the last (and best) version for a longer time...  
+* **27.01.2022** Firmware **3.2-270122**: All DFPlayer modules are supported now. Battery warning is working reliable and the music box mode can now skip to the next track by pressing the button for 3 seconds. Ready to release.  
+
 # 2021
   
 * **17.01.2020** Happy new year" Stay tuned for a complete V3.2 wiki integration.  

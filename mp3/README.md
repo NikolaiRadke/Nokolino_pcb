@@ -1,10 +1,14 @@
 # Voice set for Nokolino - German
 
-Here you find four voice sets: Nokolino for the male and Nokolina for the female version, each with **2MB** for **16 MBit JQ6500** modules and **4MB** for the **32 MBit JQ6500 and JQ8400** modules.  
+Here you find four voice sets: Nokolino for the male and Nokolina for the female version, each with **2MB** for **16 MBit JQ6500** modules and **4MB** for the **32 MBit JQ6500, JQ8400 and DFPlayer** modules.  
+
+## DFPlayer
+  
+Plug in your DFPlayer module or Nokolino and put the voice set in folder **01** on your SD card. In folder **02** you can put your own mp3 files for the music box mode, named 001.mp3 to 999.mp3.   
 
 ## JQ8400  
   
-Plug in your JQ8400-module or Nokolino, delete the old files and copy the new mp3s on the module. Strictly observe the sequence! 021.mp3 must be copied as the 21st file. See the Wiki for more detailed instructions.
+Plug in your JQ8400 module or Nokolino, delete the old files and copy the new mp3s on the module. Strictly observe the sequence! 021.mp3 must be copied as the 21st file. See the Wiki for more detailed instructions.
 
 Linux and Mac can copy the files by simply marking them all and draging them into the folder. Windows has it's issues with the copying sequence. You can either copy them one by one oder use a copy tool like SmartCopyTool.
 
