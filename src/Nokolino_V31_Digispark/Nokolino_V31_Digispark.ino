@@ -1,7 +1,7 @@
 /* Nokolino V3.1 25.06.2020 - Nikolai Radke
  *  
  *  Sketch for Mini-Noko-Monster with new JQ8400 module
- *  For ATtiny45/85 - set to 8 Mhz and remember to flash your bootloader first
+ *  For ATtiny85 - set to 8 Mhz and remember to flash your bootloader first
  *  
  *  Flash-Usage: 3.972 (IDE 1.8.12 | AVR 1.8.3 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
@@ -91,8 +91,8 @@ init(); {
   setup_watchdog(3);                   // Set sleep time to 128ms  
 
   // Port Setup
-  DDRB &= ~(1<<PB0);                   // D0 INPUT
-  PORTB |= (1<<PB0);                   // D0 HIGH 
+  pinMode(0,INPUT);                    // D0 INPUT
+  digitalWrite(0,HIGH);                // D0 HIGH
 
   // Start JQ8400
   newdelay(750);                       // JQ8400 needs a short time to settle
@@ -145,7 +145,7 @@ init(); {
 while(1) {
   // Wait for button or time and go to sleep - ~8 times/second         
   if (!low) {                          // Quiet if battery too low
-    if (!(PINB & (1<<PB0))) {          // If button is pressed then
+    if (!digitalRead(0)) {              // If button is pressed then
       if (dark) {                      // if fototransistor is available
         #ifdef SleepComplain           // and complain feature enabled
           if (files==Time_event+1)     // and not in music box mode
