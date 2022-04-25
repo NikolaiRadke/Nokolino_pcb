@@ -27,7 +27,7 @@
 
 #include <avr/sleep.h>
 #include <avr/interrupt.h>
-#include <SoftSerial.h>
+#include <SoftwareSerial.h>
 #include <EEPROM.h>
 
 //--------------------------------------------------------------------------------
