@@ -7,7 +7,7 @@
  *            GD3200B           makes too much noise
  *            YX5200-24SS       untested, original player and should work
  *  
- *  Flash-Usage: 3.900 (IDE 1.8.19 | AVR 1.8.4 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
+ *  Flash-Usage: 3.896 (IDE 1.8.19 | AVR 1.8.4 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85 )
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -33,7 +33,7 @@
 //--------------------------------------------------------------------------------
 // Configuation
 #define Time         10                // Say something every statistical 10 minutes
-#define Volume       22                // Volume 0-30 - 25 is recommended 
+#define Volume       22                // Volume 0-30 - 22 is recommended 
 #define Darkness     4                 // Optional: The lower the darker the light must be
 
 #define Button_event 40                // Last button event number (XXX.mp3)
@@ -198,7 +198,7 @@ void play(uint8_t file, uint8_t folder) { // Plays M3 file in folder 01 or 02
   while (analogRead(A2)<maxInput) {    // Check busy and play until end of file
       if ((musicbox) && (!(PINB & (1<<PB0)))) {  // button pressed in music box mode
         newdelay(3000);                // Wait 3 sec
-        if (!(PINB & (1<<PB0))) break; // Stop playing if button is still pressed
+        if (!(PINB & (1<<PB0))) break; // Play next file if button is still pressed
       }
       attiny_sleep();                  // Save power while playing
   }
