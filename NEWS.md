@@ -1,5 +1,8 @@
 # Newsblog
-
+  
+# 2023  
+* **11.01.2023** Finally i found out that not all DFPlayer devices support USB. Luckily y new Version 220920 of the MH2024K-24SS chipset solves this nasty issue.  
+  
 # 2022
 * **30.01.2022** Started german wiki integration of the new V3.2 version. Hopefully the last (and best) version for a longer time...  
 * **27.01.2022** Firmware **3.2-270122**: All DFPlayer modules are supported now. Battery warning is working reliable and the music box mode can now skip to the next track by pressing the button for 3 seconds. Ready to release.  
