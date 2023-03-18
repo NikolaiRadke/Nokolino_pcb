@@ -1,7 +1,8 @@
 # Newsblog
   
 # 2023  
-* **11.01.2023** Finally i found out that not all DFPlayer devices support USB. Luckily y new Version 220920 of the MH2024K-24SS chipset solves this nasty issue.  
+* **18.03.2023** Fixed a bug that prevented resetting the battery low flag. Updated all Firmwares to **X.X-180323**. 
+* **11.01.2023** Finally i found out that not all DFPlayer devices support USB. Luckilyy new Version 220920 of the MH2024K-24SS chipset solves this nasty issue.  
   
 # 2022
 * **30.01.2022** Started german wiki integration of the new V3.2 version. Hopefully the last (and best) version for a longer time...  
