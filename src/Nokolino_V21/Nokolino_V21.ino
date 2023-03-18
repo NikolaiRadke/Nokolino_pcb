@@ -1,10 +1,10 @@
-/* NOKOlino V2.1 03.08.2019 - Nikolai Radke
+/*  NOKOlino V2.1 03.08.2019 - Nikolai Radke
  *  
- *  Sketch for Mini-Noko-Monster, older Version
- *  for Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
+ *  Sketch for Mini Noko monster, older Version
+ *  For Attiny45/85 | 8 Mhz - remember to flash your bootloader first!
  *  SoftwareSerial needs 8 MHz to work correctly.
  *  
- *  Flash-Usage: 3.694 (1.8.12 | ATTiny 1.0.2 | Linux X86_64 | ATtiny85)
+ *  Flash usage: 3.606 (2.0.4 | AVR 1.8.6 | ATtiny 1.0.2 | Linux X86_64 | ATtiny85)
  *  
  *  Circuit:
  *  1: RST | PB5  free
@@ -19,6 +19,8 @@
  *  Sleepmodes:
  *  0=16ms, 1=32ms, 2=64ms, 3=128ms, 4=250ms, 5=500ms
  *  6=1sec, 7=2sec, 8=4sec, 9=8sec
+ *
+ *  Changelog: Found an old battery low flag bug
  */
 
 #include <avr/sleep.h>
@@ -171,13 +173,13 @@ while(1) {
   // Optional: Check current
   #ifdef BatteryWarning
     if (counter==0) {
+     low=false;                        // Reset warning flag
      current=MeasureVCC();
      vref=1024*1.1f/(double)current;
      if (vref<=minCurrent) {          // Current below minimum    
        if (vref<=battLow) low=true;   // Power too low for JQ6500
        else JQ6500_play(Time_event+1);// NOKOLINO says "Beep"
      }
-     else low=false;
      counter=400;                     // Every minute, 50x 128ms + some sleeping ms
     }
     counter--;
