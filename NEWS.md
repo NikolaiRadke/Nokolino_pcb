@@ -1,6 +1,7 @@
 # Newsblog
   
 # 2023  
+* **31.03.2023** Added a deep sleep mode for V3.2. If you forget to turn him off, he will draw only 6,5mAh insted of 16,5mAh.  
 * **18.03.2023** Fixed a bug that prevented resetting the battery low flag. Updated all Firmwares to **X.X-180323**. 
 * **11.01.2023** Finally i found out that not all DFPlayer devices support USB. Luckilyy new Version 220920 of the MH2024K-24SS chipset solves this nasty issue.  
   
