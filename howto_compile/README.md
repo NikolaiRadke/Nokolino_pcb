@@ -52,7 +52,7 @@ For **V3.2**, **V3.1** and **V3.0** versions. If you need **V2.1** for an old ki
 ### Flashing Nokolino firmware
   
 1. Open sketch **Nokolino.ino**.  
-2. Upload the sketch.  
+2. Select ``` Sketch > Upload with programmer ``` to flash the firmware.  
 3. DONE.  
 
 Now you can remove the microcontroller. You should keep the wireing alive to easly make some changes in the firmware.  
