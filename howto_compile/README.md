@@ -26,7 +26,7 @@ In order to flash your ATtiny with the Nokolino-sketch, you need the **Arduino-I
    
 ![ATTINY-ARDUINO](http://www.nikolairadke.de/NOKOlino_2/attiny_steckplatine.png)  
   
-### Burning an Attiny bootloader  
+### Burning an ATtiny bootloader  
 
 1. Connect your Arduino to your system again.  
 2. Select ``` Tools > Programmer > Arduino as ISP ```.  
@@ -58,7 +58,7 @@ For **V3.2**, **V3.1** and **V3.0** versions. If you need **V2.1** for an old ki
 Now you can remove the microcontroller. You should keep the wireing alive to easly make some changes in the firmware.  
 
 ### Hints for Linux users
-With some Debain-based distributions like Ubuntu or Mint you might recieve an error while trying to upload your sketch to the Attiny like  
+With some Debain-based distributions like Ubuntu or Mint you might recieve an error while trying to upload your sketch to the ATtiny like  
 ``` avrdude: ser_open(): can't open device "/dev/ttyUSB0": Permission denied. ```  
 This issue can be solved by adding your user to the dialout-group. Open a terminal and type  
 ``` sudo usermod -a -G dialout $USERNAME ```.  
