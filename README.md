@@ -1,4 +1,4 @@
-# ![Nokolino](http://www.nikolairadke.de/Nokolino/nokolino_back.jpg)  
+![Nokolino](http://www.nikolairadke.de/Nokolino/nokolino_back.jpg)  
 
 The ATtiny-based litte brother of Noko. Tiny and cute. And everyone is invited to **contribute**. Nokolino is for everyone. This repository is for the **PCB** version of Nokolino, easy and fast to build. See [PCB](https://github.com/NikolaiRadke/NOKOlino_2/tree/master/PCB.md) on how to get your own boards. Do you own a complete kit? Look [here](https://github.com/NikolaiRadke/Nokolino).    
   
