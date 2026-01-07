@@ -10,7 +10,7 @@ Like his big brother **Noko**, the little Nokolino delights it's surroundings wi
   
 Another useful application option would be to use the hardware without the monster suit as a **music box** in an old used doll to bring it back to modern days, maybe with other sounds or songs.  
 
-What does he to - technically? Whenever you press his button, he will laugh. And when he's just turned on, he says something random randomly every statistically 10 minutes. That's ist. Quiet a lot for a stuffed monster!  
+What does he to - technically? Whenever you press his button, he will laugh. And when he's just turned on, he says something random randomly every statistically 10 minutes. That's ist. Quite a lot for a stuffed monster!  
   
 **Nokolino** stands for **No**ra and Ni**ko**s monster - the appendix **lino** describes the small version.  
   
